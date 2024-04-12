@@ -1,0 +1,124 @@
+@media screen and (min-width: 750px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        background-color: #ae8507;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    body{
+        margin: 0;
+    }
+    
+    .izbornikPocetna {
+        display: block;
+        float: left;
+        text-decoration: none;
+        color:black;
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+        align-content: center;
+    }
+    
+    .izbornikPocetna:hover {
+        background-color: #533e0d;
+        color: #ffc300;
+    }
+
+    #navPocetna{
+        align-content: center;
+    }
+    
+    #naslovILogoPocetna {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #naslovPocetna{
+        font-size:200%;
+        padding-left: 20px;
+    }
+
+    .mobilniIzbornik {
+        display: none; 
+    }
+
+    main {
+        margin-top: 12vh;
+    }
+
+    footer {
+        text-align: center;
+        background-color: #ae8507;
+        height: 5vh;
+        align-content: center;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    header {
+        width: 100%;
+        background-color: #ae8507;
+        width: 100%;
+        text-align: center;
+    }
+    
+    body{
+        margin: 0;
+    }
+
+    .izbornikPocetna {
+        display: none; 
+    }
+
+    .mobilniIzbornik {
+        display: block; 
+        text-align: center; 
+    }
+
+    .mobilniIzbornik a {
+        display: block;
+        padding: 10px; 
+        text-decoration: none; 
+        color: black;
+        align-items: center;
+    }
+    
+    #navPocetna {
+        padding-top: 0.2vh;
+    }
+    
+    #naslovILogoPocetna {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #naslovPocetna{
+        font-size:200%;
+        padding-left: 1vw;
+    }
+
+    .mobilniIzbornikPocetna:hover {
+        background-color: #533e0d;
+        color: #ffc300;
+    }
+
+    footer{
+        text-align: center;
+        background-color: #ae8507;
+        height: 5vh;
+        align-content: center;
+    }
+    
+}
+
+
+
+
+
