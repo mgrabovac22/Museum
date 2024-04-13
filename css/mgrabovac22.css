@@ -53,7 +53,7 @@
     footer {
         text-align: center;
         background-color: #ae8507;
-        height: 5vh;
+        height: 12vh;
         align-content: center;
     }
 
@@ -99,6 +99,10 @@
         text-align: center;
     }
 
+    .blok:hover {
+        transform: scale(1.2);
+    }    
+
     .blok a{
         text-decoration: none;
         color:gold;
@@ -106,6 +110,10 @@
 
     #obavjestiKontenjer{
         text-align: center;
+    }
+
+    footer p a{
+        text-decoration: none;
     }
 }
 
@@ -156,7 +164,7 @@
     footer{
         text-align: center;
         background-color: #ae8507;
-        height: 5vh;
+        height: 12vh;
         align-content: center;
     }
 
@@ -168,7 +176,7 @@
     }
 
     #sredisnjiPocetna{
-        background-image: url('../resursi/slike/pozadina_pocetna.jpg');
+        background-image: url('../resursi/slike/pozadina_pocetna_mobilni.jpg');
         background-size: cover;
         z-index: -1;
     }
@@ -193,6 +201,10 @@
         text-align: center;
     }
 
+    .blok:hover {
+        transform: scale(1.2);
+    } 
+
     .blok a{
         text-decoration: none;
         color:gold;
@@ -200,6 +212,10 @@
 
     #obavjestiKontenjer{
         text-align: center;
+    }
+
+    footer p a{
+        text-decoration: none;
     }
     
 }
