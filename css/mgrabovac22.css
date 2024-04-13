@@ -116,6 +116,96 @@
         text-decoration: none;
         color: black;
     }
+
+    #trenutna{
+        background-color: darkgray;
+    }
+
+    #sredisnjiAutor{
+        padding-top: 10vh;
+    }
+
+    #sredisnjiPrviDio{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #sredisnjiAutor{
+        background-image: url('../resursi/slike/autorPozadina.jpg');
+        background-size: cover;
+    }
+
+    #sredisnjiPrviDio{
+        justify-content: center;
+    }
+
+    #opisAutora{
+        display: block;
+        flex-direction: row;
+        background-color: #666666;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #opisAutora:hover{
+        transform: scale(1.02);
+    }
+    
+    #mojaSlika{
+        padding-top: 10vh;
+        padding-right: 2vh;
+    }
+
+    #kvalifikacijeAutora{
+        display: block;
+        background-color: #666666;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #kvalifikacijeAutora:hover{
+        transform: scale(1.02);
+    }
+
+    @keyframes rotiraj {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(365deg);
+        }
+    }
+
+    @keyframes suzavanje {
+        from {
+            transform: scaleX(1); 
+        }
+        to {
+            transform: scaleX(0.5); 
+        }
+    }
+
+    @keyframes providnost{
+        from{
+            filter: blur(5px);
+        }
+        to{
+            filter: blur(10px);
+        }
+    }
+
+    #mojaSlika:hover {
+        animation: rotiraj 5s linear infinite; 
+    }
+
+    p.boldanFont{
+        text-shadow: none;
+    }
+
 }
 
 @media screen and (max-width: 750px) {
@@ -218,6 +308,58 @@
     footer p a{
         text-decoration: none;
         color: black;
+    }
+
+    #trenutna{
+        background-color: darkgray;
+    }
+
+    #sredisnjiPrviDio{
+        justify-content: center;
+        text-align: center;
+    }
+
+    #sredisnjiAutor{
+        background-image: url('../resursi/slike/autorPozadina.jpg');
+        background-size: cover;
+        z-index: -1;
+    }
+
+    #opisAutora{
+        display: block;
+        flex-direction: row;
+        background-color: #666666;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #kvalifikacijeAutora{
+        display: block;
+        background-color: #666666;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding-bottom: 6vh;
+    }
+
+    @keyframes rotateImage {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(365deg);
+        }
+    }
+
+    #mojaSlika:hover {
+        animation: rotateImage 5s linear infinite; 
+    }
+
+    p.boldanFont{
+        text-shadow: none;
     }
     
 }
