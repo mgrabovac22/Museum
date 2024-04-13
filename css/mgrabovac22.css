@@ -4,7 +4,7 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
-        background-color: #ae8507;
+        background-color: #666666;
         position: fixed;
         top: 0;
         width: 100%;
@@ -29,8 +29,8 @@
     }
     
     .izbornikPocetna:hover {
-        background-color: #533e0d;
-        color: #ffc300;
+        background-color: darkgray;
+        color: #3E363F;
     }
 
     #navPocetna{
@@ -52,7 +52,7 @@
 
     footer {
         text-align: center;
-        background-color: #ae8507;
+        background-color: #666666;
         height: 12vh;
         align-content: center;
     }
@@ -89,7 +89,7 @@
     .blok {
         width: 250px;
         height: 270px;
-        background-color: #ae8507;
+        background-color: #666666;
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -105,7 +105,7 @@
 
     .blok a{
         text-decoration: none;
-        color:gold;
+        color:lightgrey;
     }
 
     #obavjestiKontenjer{
@@ -114,13 +114,14 @@
 
     footer p a{
         text-decoration: none;
+        color: black;
     }
 }
 
 @media screen and (max-width: 750px) {
     header {
         width: 100%;
-        background-color: #ae8507;
+        background-color: #666666;
         text-align: center;
     }
     
@@ -157,13 +158,13 @@
     }
 
     .mobilniIzbornikPocetna:hover {
-        background-color: #533e0d;
-        color: #ffc300;
+        background-color: darkgray;
+        color: #3E363F;
     }
 
     footer{
         text-align: center;
-        background-color: #ae8507;
+        background-color: #666666;
         height: 12vh;
         align-content: center;
     }
@@ -191,7 +192,7 @@
     .blok {
         width: 50vw;
         height: 40vh;
-        background-color: #ae8507;
+        background-color: #666666;
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -207,7 +208,7 @@
 
     .blok a{
         text-decoration: none;
-        color:gold;
+        color:lightgrey;
     }
 
     #obavjestiKontenjer{
@@ -216,6 +217,7 @@
 
     footer p a{
         text-decoration: none;
+        color: black;
     }
     
 }
