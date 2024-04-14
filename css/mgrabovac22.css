@@ -89,7 +89,7 @@
     .blok {
         width: 250px;
         height: 270px;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.7);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -100,7 +100,7 @@
     }
 
     .blok:hover {
-        transform: scale(1.2);
+        animation: povecanje 2s ease forwards;
     }    
 
     .blok a{
@@ -142,11 +142,15 @@
     #opisAutora{
         display: block;
         flex-direction: row;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #opisAutora a{
+        color: black;
     }
 
     #opisAutora:hover{
@@ -160,7 +164,7 @@
 
     #kvalifikacijeAutora{
         display: block;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -171,12 +175,15 @@
         transform: scale(1.02);
     }
 
-    @keyframes rotiraj {
-        from {
-            transform: rotate(0deg);
+    @keyframes pomjeranjeGoreDole {
+        0% {
+            transform: translateY(100px); 
         }
-        to {
-            transform: rotate(365deg);
+        50% {
+            transform: translateY(-50px); 
+        }
+        100% {
+            transform: translateY(100px); 
         }
     }
 
@@ -189,21 +196,30 @@
         }
     }
 
-    @keyframes providnost{
-        from{
-            filter: blur(5px);
-        }
-        to{
-            filter: blur(10px);
-        }
-    }
-
     #mojaSlika:hover {
-        animation: rotiraj 5s linear infinite; 
+        animation: pomjeranjeGoreDole 3s linear infinite alternate; 
     }
 
     p.boldanFont{
         text-shadow: none;
+    }
+
+    @keyframes povecanje {
+        from{
+            transform: scale(1);
+        }
+        to{
+            transform: scale(1.2);
+        }
+    }
+
+    #imeBootstrap{
+        display: flex;
+        align-items: center;
+    }
+
+    #ikonaB{
+        padding-right: 10px;
     }
 
 }
@@ -282,7 +298,7 @@
     .blok {
         width: 50vw;
         height: 40vh;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -327,17 +343,24 @@
 
     #opisAutora{
         display: block;
-        flex-direction: row;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
+    .boldanFont{
+        justify-content: center;
+    }
+
+    #opisAutora a{
+        color: black;
+    }
+
     #kvalifikacijeAutora{
         display: block;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -350,7 +373,7 @@
             transform: rotate(0deg);
         }
         to {
-            transform: rotate(365deg);
+            transform: rotate(360deg);
         }
     }
 
@@ -361,7 +384,15 @@
     p.boldanFont{
         text-shadow: none;
     }
-    
+
+    #imeBootstrap{
+        display: flex;
+        align-items: center;
+    }
+
+    #ikonaB{
+        padding-right: 10px;
+    }
 }
 
 
