@@ -89,7 +89,7 @@
     .blok {
         width: 250px;
         height: 270px;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.7);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -100,7 +100,7 @@
     }
 
     .blok:hover {
-        transform: scale(1.2);
+        animation: povecanje 2s ease forwards;
     }    
 
     .blok a{
@@ -116,6 +116,112 @@
         text-decoration: none;
         color: black;
     }
+
+    #trenutna{
+        background-color: darkgray;
+    }
+
+    #sredisnjiAutor{
+        padding-top: 10vh;
+    }
+
+    #sredisnjiPrviDio{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #sredisnjiAutor{
+        background-image: url('../resursi/slike/autorPozadina.jpg');
+        background-size: cover;
+    }
+
+    #sredisnjiPrviDio{
+        justify-content: center;
+    }
+
+    #opisAutora{
+        display: block;
+        flex-direction: row;
+        background-color: rgba(102, 102, 102, 0.8);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #opisAutora a{
+        color: black;
+    }
+
+    #opisAutora:hover{
+        transform: scale(1.02);
+    }
+    
+    #mojaSlika{
+        padding-top: 10vh;
+        padding-right: 2vh;
+    }
+
+    #kvalifikacijeAutora{
+        display: block;
+        background-color: rgba(102, 102, 102, 0.8);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #kvalifikacijeAutora:hover{
+        transform: scale(1.02);
+    }
+
+    @keyframes pomjeranjeGoreDole {
+        0% {
+            transform: translateY(100px); 
+        }
+        50% {
+            transform: translateY(-50px); 
+        }
+        100% {
+            transform: translateY(100px); 
+        }
+    }
+
+    @keyframes suzavanje {
+        from {
+            transform: scaleX(1); 
+        }
+        to {
+            transform: scaleX(0.5); 
+        }
+    }
+
+    #mojaSlika:hover {
+        animation: pomjeranjeGoreDole 3s linear infinite alternate; 
+    }
+
+    p.boldanFont{
+        text-shadow: none;
+    }
+
+    @keyframes povecanje {
+        from{
+            transform: scale(1);
+        }
+        to{
+            transform: scale(1.2);
+        }
+    }
+
+    #imeBootstrap{
+        display: flex;
+        align-items: center;
+    }
+
+    #ikonaB{
+        padding-right: 10px;
+    }
+
 }
 
 @media screen and (max-width: 750px) {
@@ -192,7 +298,7 @@
     .blok {
         width: 50vw;
         height: 40vh;
-        background-color: #666666;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -219,7 +325,74 @@
         text-decoration: none;
         color: black;
     }
-    
+
+    #trenutna{
+        background-color: darkgray;
+    }
+
+    #sredisnjiPrviDio{
+        justify-content: center;
+        text-align: center;
+    }
+
+    #sredisnjiAutor{
+        background-image: url('../resursi/slike/autorPozadina.jpg');
+        background-size: cover;
+        z-index: -1;
+    }
+
+    #opisAutora{
+        display: block;
+        background-color: rgba(102, 102, 102, 0.8);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .boldanFont{
+        justify-content: center;
+    }
+
+    #opisAutora a{
+        color: black;
+    }
+
+    #kvalifikacijeAutora{
+        display: block;
+        background-color: rgba(102, 102, 102, 0.8);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding-bottom: 6vh;
+    }
+
+    @keyframes rotateImage {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    #mojaSlika:hover {
+        animation: rotateImage 5s linear infinite; 
+    }
+
+    p.boldanFont{
+        text-shadow: none;
+    }
+
+    #imeBootstrap{
+        display: flex;
+        align-items: center;
+    }
+
+    #ikonaB{
+        padding-right: 10px;
+    }
 }
 
 
