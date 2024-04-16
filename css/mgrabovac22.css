@@ -263,6 +263,53 @@
         padding-top: 3vh;
         padding-bottom: 1vh;
     }
+
+    #sredisnjiGalerija{
+        padding-top: 11vh;
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+    }
+
+    #sredisnjiGalerija h1{
+        padding-left: 1vw;
+    }
+
+    #gridSlike{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    figure {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .slika img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .slika:hover img {
+        transform: scale(1.1);
+    }
+    
+    .slika h3, .slika p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .slika a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+    
     
 }
 
@@ -473,6 +520,51 @@
     #podnozjeDokumentacije{
         padding-top: 3vh;
         padding-bottom: 1vh;
+    }
+
+    #sredisnjiGalerija{
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+    }
+
+    #sredisnjiGalerija h1{
+        text-align: center;
+    }
+
+    #gridSlike{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    figure {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .slika img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .slika:hover img {
+        transform: scale(1.1);
+    }
+    
+    .slika h3, .slika p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .slika a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
     }
 }
 
