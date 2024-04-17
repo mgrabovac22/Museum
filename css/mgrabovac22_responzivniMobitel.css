@@ -1,40 +1,30 @@
-@media screen and (min-width: 750px) {
+@media screen and (max-width: 750px) {
     header {
-        display: flex;
-        flex-direction: row;
         width: 100%;
-        justify-content: space-between;
         background-color: #666666;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
+        text-align: center;
     }
     
     body{
         margin: 0;
         text-align:justify;
     }
-    
+
     .izbornikPocetna {
-        display: block;
-        float: left;
-        text-decoration: none;
-        color:black;
-        padding-top: 4vh;
-        padding-bottom: 4vh;
-        padding-left: 0.5vw;
-        padding-right: 0.5vw;
-        align-content: center;
-    }
-    
-    .izbornikPocetna:hover {
-        background-color: darkgray;
-        color: #3E363F;
+        display: none; 
     }
 
-    #navPocetna{
-        align-content: center;
+    .mobilniIzbornik {
+        display: block; 
+        text-align: center; 
+    }
+
+    .mobilniIzbornik a {
+        display: block;
+        padding: 10px; 
+        text-decoration: none; 
+        color: black;
+        align-items: center;
     }
     
     #naslovILogoPocetna {
@@ -44,13 +34,15 @@
     
     #naslovPocetna{
         font-size:200%;
+        padding-left: 1vw;
     }
 
-    .mobilniIzbornik {
-        display: none; 
+    .mobilniIzbornikPocetna:hover {
+        background-color: darkgray;
+        color: #3E363F;
     }
 
-    footer {
+    footer{
         text-align: center;
         background-color: #666666;
         height: 12vh;
@@ -60,36 +52,27 @@
     p{
         color: black;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        padding-left: 1vw;
         padding-right: 1vw;
-    }
-
-    #kartaKontenjerPocetna{
-        padding-top: 10vh;
-        display: flex;
-        flex-direction: row;
     }
 
     #sredisnjiPocetna{
-        background-image: url('../resursi/slike/pozadina_pocetna.jpg');
+        background-image: url('../resursi/slike/pozadina_pocetna_mobilni.jpg');
         background-size: cover;
         z-index: -1;
     }
-    
-    #opisMuzejaPocetna{
-        padding-left: 1vw;
-    }
 
     iframe.karta{
-        padding-top: 10vh;
-        padding-right: 1vw;
-        width: 400px;
-        height: 300px;
+        margin: 0 auto;
+        display: block;
+        width: 350px;
+        height: 350px;
     }
 
     .blok {
-        width: 250px;
-        height: 270px;
-        background-color: rgba(102, 102, 102, 0.7);
+        width: 50vw;
+        height: 40vh;
+        background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
@@ -100,8 +83,8 @@
     }
 
     .blok:hover {
-        animation: povecanje 2s ease forwards;
-    }    
+        transform: scale(1.2);
+    } 
 
     .blok a{
         text-decoration: none;
@@ -121,27 +104,19 @@
         background-color: darkgray;
     }
 
-    #sredisnjiAutor{
-        padding-top: 10vh;
-    }
-
     #sredisnjiPrviDio{
-        display: flex;
-        flex-direction: row;
+        justify-content: center;
+        text-align: center;
     }
 
     #sredisnjiAutor{
         background-image: url('../resursi/slike/autorPozadina.jpg');
         background-size: cover;
-    }
-
-    #sredisnjiPrviDio{
-        justify-content: center;
+        z-index: -1;
     }
 
     #opisAutora{
         display: block;
-        flex-direction: row;
         background-color: rgba(102, 102, 102, 0.8);
         margin: 20px;
         padding: 20px;
@@ -149,17 +124,12 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    #opisAutora a{
-        color: black;
+    .boldanFont{
+        justify-content: center;
     }
 
-    #opisAutora:hover{
-        transform: scale(1.02);
-    }
-    
-    #mojaSlika{
-        padding-top: 10vh;
-        padding-right: 2vh;
+    #opisAutora a{
+        color: black;
     }
 
     #kvalifikacijeAutora{
@@ -169,48 +139,24 @@
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding-bottom: 6vh;
     }
 
-    #kvalifikacijeAutora:hover{
-        transform: scale(1.02);
-    }
-
-    @keyframes pomjeranjeGoreDole {
-        0% {
-            transform: translateY(100px); 
-        }
-        50% {
-            transform: translateY(-50px); 
-        }
-        100% {
-            transform: translateY(100px); 
-        }
-    }
-
-    @keyframes suzavanje {
+    @keyframes rotateImage {
         from {
-            transform: scaleX(1); 
+            transform: rotate(0deg);
         }
         to {
-            transform: scaleX(0.5); 
+            transform: rotate(360deg);
         }
     }
 
     #mojaSlika:hover {
-        animation: pomjeranjeGoreDole 3s linear infinite alternate; 
+        animation: rotateImage 5s linear infinite; 
     }
 
     p.boldanFont{
         text-shadow: none;
-    }
-
-    @keyframes povecanje {
-        from{
-            transform: scale(1);
-        }
-        to{
-            transform: scale(1.2);
-        }
     }
 
     #imeBootstrap{
@@ -228,17 +174,9 @@
     }
 
     #sredisnjiDokumentacija{
-        height: 100%;
-        margin-top: 10vh;
         align-content: center;
         background-image: url(../resursi/slike/pozadinaDok.jpg);
         background-size: cover;
-        padding: 15vh;
-    }
-
-    ul, li {
-        font-family: 'Roboto', sans-serif;
-        color: black;
     }
 
     .sredinaDok{
@@ -251,12 +189,17 @@
     }
 
     .sredinaDok:hover{
-        animation: povecanje 2s ease forwards;
+        transform: scale(1.04);
     }
 
     ul, li a{
        text-decoration: none;
        color:darkgray;
+    }
+
+    ul, li {
+        font-family: 'Roboto', sans-serif;
+        color: black;
     }
 
     #podnozjeDokumentacije{
@@ -265,13 +208,12 @@
     }
 
     #sredisnjiGalerija{
-        padding-top: 11vh;
         background-image: url(../resursi/slike/pozadina_pocetna.jpg);
         background-size: cover;
     }
 
     #sredisnjiGalerija h1{
-        padding-left: 1vw;
+        text-align: center;
     }
 
     #gridSlike{
@@ -311,19 +253,6 @@
         color: inherit;
     }
 
-    #sredisnjiObavjest1 {
-        padding-top: 10vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding-left: 20vw;
-        padding-right: 20vw;
-        background-image: url(../resursi/slike/pozadina_pocetna_mobilni.jpg);
-        background-size: cover;
-    }
-
     #sredinaObavjesti{
         display: block;
         background-color: rgba(102, 102, 102, 0.8);
@@ -331,21 +260,15 @@
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
-    .naslovObavjesti{
-        display: flex;
-        flex-direction: row;
-    }
-    
-    #autorOstalo{
-        margin-left: 4vw;
-        border-color: black;
-        border-style: solid;
-    }
 
     #videoOb1{
         width: 100%;
-        height: 200px;
+        height: 100%;
+    }
+
+    #sredisnjiObavjest1{
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-size: cover;
     }
 
     @keyframes rotiraj {
@@ -393,11 +316,11 @@
         animation: ukrsti 2s linear infinite;
         animation-delay: 1s;
     }
-    
+
     #slikaUobavjest{
         text-align: center;
     }
-    
+
     @keyframes rotirajKovanicu {
         0% {
             transform: rotate(0deg);
@@ -434,58 +357,30 @@
         text-align: center;
         animation: kretanjeKonj 4s linear infinite;
     }
-
+    
     #sredisnjiTablica{
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         background-image: url(../resursi/slike/pozadina_pocetna_mobilni.jpg);
         background-size: cover;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
-    
-    caption {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    th{
-        background-color: lightgray;
-        color: #333;
     }
 
     td{
         background-color: #f2f2f2;
     }
 
-    th [scope="col"], td {
+    th{
+        background-color: lightgray;
+    }
+
+    th, td {
         padding: 8px;
         border: 1px solid #ddd;
     }
 
-    #sredisnjiObrazac{
-        padding-top: 12vh;
-    }
-
-    form {
-        background-color: lightgray;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
     label {
         display: block;
         margin-bottom: 5px;
         font-weight: bold;
+        text-align: left;
     }
     
     input, select {
@@ -497,7 +392,14 @@
         border-radius: 4px;
         transition: border-color 0.3s ease-in-out;
     }
-    
+
+    form {
+        background-color: lightgray;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
     input:focus, select:focus {
         border-color: #007bff;
     }
@@ -513,11 +415,30 @@
     input[type="submit"]:hover, input[type="reset"]:hover {
         background-color: #0056b3;
     }
-
-    .jedanInputi{
-        display: flex;
-        flex-direction: row;
-    }
     
 }
+
+@media screen and (max-width: 800px) {
+    th, td {
+        display: none;
+    }
+
+    th:nth-child(-n+2), td:nth-child(-n+2) {
+        display: table-cell;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    td{
+        background-color: #f2f2f2;
+    }
+
+    th{
+        background-color: lightgray;
+    }
+}
+
 

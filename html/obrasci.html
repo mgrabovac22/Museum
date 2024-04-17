@@ -7,6 +7,7 @@
     <meta name="keywords" content="Početna stranica, Muzej, Vitezovi noći">
     <title>Muzej početna</title>
     <link rel="stylesheet" href="../css/mgrabovac22.css">
+    <link rel="stylesheet" href="../css/mgrabovac22_responzivniMobitel.css">
 </head>
 <body>
     <header>
@@ -40,15 +41,74 @@
 
     </header>
     <main id="sredisnjiObrazac">
-        <div id="obrazac1">
-
-        </div>
-        <div id="obrazac2">
-
-        </div>
-        <div id="tablica1">
-
-        </div>
+        <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post">
+            <div>
+                <label for="ime">Ime:</label>
+                <input type="text" id="ime" name="ime" required minlength="2" maxlength="50">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="dob">Datum rođenja:</label>
+                <input type="date" id="dob" name="dob" max="2004-01-01">
+            </div>
+            <div>
+                <label for="broj">Broj godina:</label>
+                <input type="number" id="broj" name="broj" min="18" max="99">
+            </div>
+            <div>
+                <div class="jedanInputi">
+                    <label for="opcija1">Opcija 1</label><br>
+                    <input type="radio" id="opcija1" name="opcija" value="opcija1" checked>
+                </div>
+                <div class="jedanInputi">
+                    <label for="opcija2">Opcija 2</label><br>
+                    <input type="radio" id="opcija2" name="opcija" value="opcija2">
+                </div>
+                <div class="jedanInputi">
+                    <label for="opcija3">Opcija 3</label><br>
+                    <input type="radio" id="opcija3" name="opcija" value="opcija3">
+                </div>
+            </div>
+            <div>
+                <label for="spol">Spol:</label>
+                <select id="spol" name="spol" required>
+                    <option value="">Odaberite</option>
+                    <option value="M">Muško</option>
+                    <option value="Ž">Žensko</option>
+                    <option value="O">Ostalo</option>
+                </select>
+            </div>
+            <div>
+                <label for="grad">Grad:</label>
+                <input type="text" id="grad" name="grad" pattern="[A-Za-z\s]+" title="Dozvoljena su samo slova">
+            </div>
+            <div>
+                <label for="odabir">Odabir:</label>
+                <select id="odabir" name="odabir">
+                    <optgroup label="Grupa 1">
+                        <option value="opcija1">Opcija 1</option>
+                        <option value="opcija2">Opcija 2</option>
+                        <option value="opcija3">Opcija 3</option>
+                    </optgroup>
+                    <optgroup label="Grupa 2">
+                        <option value="opcija4">Opcija 4</option>
+                        <option value="opcija5">Opcija 5</option>
+                        <option value="opcija6">Opcija 6</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div>
+                <label for="textarea">Komentar:</label>
+                <textarea id="textarea" name="komentar" rows="4" cols="50" maxlength="200"></textarea>
+            </div>
+            <div>
+                <button type="submit">Pošalji</button>
+                <button type="reset">Osvježi</button>
+            </div>
+        </form>
     </main>
     <footer>
         <p>

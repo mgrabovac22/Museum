@@ -1,0 +1,24 @@
+@media print {
+    footer{
+        display: none;
+    }
+
+    header{
+        display: none;
+    }
+
+    caption{
+        display: none;
+    }
+
+    table {
+        display: block;
+        margin: 0 auto;
+    }
+
+    th, td {
+        display: table-cell;
+        border: 1px solid black;
+        padding: 8px;
+    }
+}
