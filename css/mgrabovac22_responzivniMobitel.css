@@ -359,6 +359,7 @@
     }
     
     #sredisnjiTablica{
+        min-height: 90vh;
         background-image: url(../resursi/slike/pozadina_pocetna_mobilni.jpg);
         background-size: cover;
     }

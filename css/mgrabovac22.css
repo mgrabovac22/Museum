@@ -10,6 +10,10 @@
         width: 100%;
         z-index: 1000;
     }
+
+    *{
+        padding: 0;
+    }
     
     body{
         margin: 0;
@@ -286,7 +290,7 @@
         overflow: hidden;
     }
     
-    .slika img {
+    div.slika img {
         width: 100%;
         height: auto;
         transition: transform 0.3s ease;
@@ -363,7 +367,7 @@
         padding: 4px;
     }
 
-    #autorOstalo a img{
+    #autorOstalo > a img{
         animation: rotiraj 3s linear infinite;
     }
 
@@ -388,13 +392,8 @@
     #mac1 {
         animation: ukrsti 2s linear infinite;
     }
-    
-    #mac2 {
-        animation: ukrsti 2s linear infinite;
-        animation-delay: 1s;
-    }
-    
-    #slikaUobavjest{
+
+    .animacija ~ #slikaUobavjest{
         text-align: center;
     }
     
@@ -488,6 +487,11 @@
         font-weight: bold;
     }
     
+    label + input{
+        width: 100%;
+        padding: 10px;
+    }
+    
     input, select {
         width: 100%;
         box-sizing: border-box;
@@ -517,6 +521,14 @@
     .jedanInputi{
         display: flex;
         flex-direction: row;
+    }
+
+    #konjAnimacija::before{
+        content: ">> ";
+    }
+
+    #konjAnimacija::after{
+        content: " <<";
     }
     
 }
