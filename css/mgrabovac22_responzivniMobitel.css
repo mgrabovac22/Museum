@@ -100,7 +100,7 @@
         color: black;
     }
 
-    #trenutna{
+    .trenutna{
         background-color: darkgray;
     }
 
@@ -415,6 +415,21 @@
     
     input[type="submit"]:hover, input[type="reset"]:hover {
         background-color: #0056b3;
+    }
+
+    #naslovPocetnaAutor{
+        padding-top: 3vh;
+        text-decoration: none;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: black;
+        font-size:200%;
+        padding-left: 0.6vw;
+    }
+
+    .izbBootstrap{
+        font-family: 'Times New Roman', Times, serif;
+        padding: 10px;
     }
     
 }

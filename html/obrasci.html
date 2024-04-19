@@ -26,7 +26,7 @@
             <a class="izbornikPocetna" href="./dokumentacija.html">Dokumentacija</a>
             <a class="izbornikPocetna" href="./oAutoru.html">o Autoru</a>
             <a class="izbornikPocetna" href="./galerijaSlika.html">Galerija</a>
-            <a class="izbornikPocetna" id="trenutna" href="./obrasci.html">Obrasci</a>
+            <a class="izbornikPocetna trenutna"  href="./obrasci.html">Obrasci</a>
             <a class="izbornikPocetna" href="./tablica.html">Tablica izložbi</a>
 
         </nav>
@@ -36,7 +36,7 @@
             <a class="mobilniIzbornikPocetna" href="./dokumentacija.html">Dokumentacija</a>
             <a class="mobilniIzbornikPocetna" href="./oAutoru.html">o Autoru</a>
             <a class="mobilniIzbornikPocetna" href="./galerijaSlika.html">Galerija</a>
-            <a class="mobilniIzbornikPocetna" id="trenutna" href="./obrasci.html">Obrasci</a>
+            <a class="mobilniIzbornikPocetna trenutna"  href="./obrasci.html">Obrasci</a>
             <a class="mobilniIzbornikPocetna" href="./tablica.html">Tablica izložbi</a>
         </nav>
 
@@ -44,42 +44,42 @@
     <main id="sredisnjiObrazac">
         <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post">
             <h1>Kupovanje karte</h1>
-            <div>
+            <div class="unosi">
                 <label for="ime">Ime i prezime:</label>
                 <input type="text" id="ime" name="ime" required minlength="2" maxlength="50">
             </div>
-            <div>
+            <div class="unosi">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div>
+            <div class="unosi">
                 <label for="lozinka">Lozinka:</label>
                 <input type="password" id="lozinka" name="lozinka" required minlength="8">
             </div>
-            <div>
+            <div class="unosi">
                 <label for="dob">Datum rođenja:</label>
                 <input type="date" id="dob" name="dob" max="2004-01-01">
             </div>
-            <div>
+            <div class="unosi">
                 <label for="broj">Broj godina:</label>
                 <input type="number" id="broj" name="broj" min="18" max="99">
             </div>
             <div>  
                 <h2>Način plaćanja</h2>
-                <div class="jedanInputi">
+                <div class="jedanInputi" class="unosi">
                     <label for="opcija1">Kartica</label><br>
                     <input type="radio" id="opcija1" name="opcija" value="Kartica" checked>
                 </div>
-                <div class="jedanInputi">
+                <div class="jedanInputi" class="unosi">
                     <label for="opcija2">Paypal</label><br>
                     <input type="radio" id="opcija2" name="opcija" value="Paypal">
                 </div>
-                <div class="jedanInputi">
+                <div class="jedanInputi" class="unosi">
                     <label for="opcija3">Crypto</label><br>
                     <input type="radio" id="opcija3" name="opcija" value="Crypto">
                 </div>
             </div>
-            <div>
+            <div class="unosi">
                 <label for="spol">Spol:</label>
                 <select id="spol" name="spol" required>
                     <option value="">Odaberite</option>
@@ -87,11 +87,11 @@
                     <option value="Ž">Žensko</option>
                 </select>
             </div>
-            <div>
+            <div class="unosi">
                 <label for="grad">Grad:</label>
                 <input type="text" id="grad" name="grad" pattern="[A-Za-z\s]+" title="Dozvoljena su samo slova">
             </div>
-            <div>
+            <div class="unosi">
                 <label for="odabir">Odabir:</label>
                 <select id="odabir" name="odabir">
                     <optgroup label="Ograničeni aranžmani">
@@ -106,7 +106,7 @@
                     </optgroup>
                 </select>
             </div>
-            <div>
+            <div class="unosi">
                 <label for="textarea">Komentar na naše usluge:</label>
                 <textarea id="textarea" name="komentar" rows="4" cols="50" maxlength="200"></textarea>
             </div>

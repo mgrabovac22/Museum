@@ -121,7 +121,7 @@
         color: black;
     }
 
-    #trenutna{
+    .trenutna{
         background-color: darkgray;
     }
 
@@ -258,7 +258,7 @@
         animation: povecanje 2s ease forwards;
     }
 
-    ul, li a{
+    li a{
        text-decoration: none;
        color:darkgray;
     }
@@ -484,16 +484,17 @@
     label {
         display: block;
         margin-bottom: 5px;
+        padding-right: 3vw;
         font-weight: bold;
     }
     
     label + input{
-        width: 100%;
+        width: 80%;
         padding: 10px;
     }
     
     input, select {
-        width: 100%;
+        width: 80%;
         box-sizing: border-box;
         margin-bottom: 10px;
         padding: 10px;
@@ -529,6 +530,25 @@
 
     #konjAnimacija::after{
         content: " <<";
+    }
+    
+    .unosi{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #naslovPocetnaAutor{
+        padding-top: 3vh;
+        text-decoration: none;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: black;
+        font-size:200%;
+        padding-left: 0.1vw;
+    }
+
+    .izbBootstrap{
+        font-family: 'Times New Roman', Times, serif;
     }
     
 }
