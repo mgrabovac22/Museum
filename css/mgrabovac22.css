@@ -235,7 +235,7 @@
         height: 100%;
         margin-top: 10vh;
         align-content: center;
-        background-image: url(../resursi/slike/pozadinaDok.jpg);
+        background-image: url(../resursi/slike/autorPozadina.jpg);
         background-size: cover;
         padding: 15vh;
     }
