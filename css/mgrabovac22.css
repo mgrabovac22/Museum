@@ -550,6 +550,16 @@
     .izbBootstrap{
         font-family: 'Times New Roman', Times, serif;
     }
+
+    #btnMob{
+        width: 18vw;
+        background-color:lightgray;
+        height: 6vh;
+        cursor: pointer;
+    }
+    span{
+        color: red;
+    }
     
 }
 

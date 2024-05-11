@@ -42,41 +42,47 @@
 
     </header>
     <main id="sredisnjiObrazac">
-        <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post">
+        <form name="myForm" action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post">
             <h1>Kupovanje karte</h1>
             <div class="unosi">
                 <label for="ime">Ime i prezime:</label>
                 <input type="text" id="ime" name="ime" required minlength="2" maxlength="50">
+                <span id="imeGreska"></span>
             </div>
             <div class="unosi">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <span id="emailGreska"></span>
             </div>
             <div class="unosi">
                 <label for="lozinka">Lozinka:</label>
                 <input type="password" id="lozinka" name="lozinka" required minlength="8">
+                <span id="lozinkaGreska"></span>
             </div>
             <div class="unosi">
                 <label for="dob">Datum rođenja:</label>
-                <input type="date" id="dob" name="dob" max="2004-01-01">
+                <input type="date" id="dob" name="dob" max="2004-01-01" required>
+                <span id="dobGreska"></span>
             </div>
             <div class="unosi">
                 <label for="broj">Broj godina:</label>
-                <input type="number" id="broj" name="broj" min="18" max="99">
+                <input type="number" id="broj" name="broj" min="18" max="99" required>
+                <span id="brojGreska"></span>
             </div>
             <div>  
                 <h2>Način plaćanja</h2>
                 <div class="jedanInputi unosi">
-                    <label for="opcija1">Kartica</label><br>
-                    <input type="radio" id="opcija1" name="opcija" value="Kartica" checked>
+                    <label for="opcija1" id="opc1">Kartica</label><br>
+                    <input type="radio" id="opcija1" name="opcija" value="Kartica" required>
                 </div>
                 <div class="jedanInputi unosi">
-                    <label for="opcija2">Paypal</label><br>
-                    <input type="radio" id="opcija2" name="opcija" value="Paypal">
+                    <label for="opcija2" id="opc2">Paypal</label><br>
+                    <input type="radio" id="opcija2" name="opcija" value="Paypal" >
                 </div>
                 <div class="jedanInputi unosi">
-                    <label for="opcija3">Crypto</label><br>
-                    <input type="radio" id="opcija3" name="opcija" value="Crypto">
+                    <label for="opcija3" id="opc3">Crypto</label><br>
+                    <input type="radio" id="opcija3" name="opcija" value="Crypto" >
+                    <span id="opcijeGreska"></span>
                 </div>
             </div>
             <div class="unosi">
@@ -86,15 +92,18 @@
                     <option value="M">Muško</option>
                     <option value="Ž">Žensko</option>
                 </select>
+                <span id="spolGreska"></span>
             </div>
             <div class="unosi">
                 <label for="grad">Grad:</label>
-                <input type="text" id="grad" name="grad" pattern="[A-Za-z\s]+" title="Dozvoljena su samo slova">
+                <input type="text" id="grad" name="grad" pattern="[A-Za-z\s]+" title="Dozvoljena su samo slova" required>
+                <span id="gradGreska"></span>
             </div>
             <div class="unosi">
                 <label for="odabir">Odabir:</label>
-                <select id="odabir" name="odabir">
+                <select id="odabir" name="odabir" required>
                     <optgroup label="Ograničeni aranžmani">
+                        <option value="">Odaberite</option>
                         <option value="2 sata">2 sata - 3€</option>
                         <option value="5 sati">5 sati - 5€</option>
                         <option value="12 sati">12 sati - 10€</option>
@@ -105,13 +114,15 @@
                         <option value="ljubavna(2 osobe - 10 sati)">ljubavna(2 osobe - 10 sati) - 13€</option>
                     </optgroup>
                 </select>
+                <span id="odabirGreska"></span>
             </div>
             <div class="unosi">
                 <label for="textarea">Komentar na naše usluge:</label>
-                <textarea id="textarea" name="komentar" rows="4" cols="50" maxlength="200"></textarea>
+                <textarea id="textarea" name="komentar" rows="4" cols="50" maxlength="200" required></textarea>
+                <span id="textareaGreska"></span>
             </div>
             <div>
-                <button type="submit">Pošalji</button>
+                <button type="submit" id="posaljiObrazac">Pošalji</button>
                 <button type="reset">Osvježi</button>
             </div>
         </form>
@@ -127,6 +138,7 @@
             <img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="HTML5 Validator" width="30" height="30">
         </a>        
     </footer>
-    <script src="../js/mgrabovac22.js"></script>
+    <script src="../js/klijent/mgrabovac22.js"></script>
+    <script src="../js/klijent/mgrabovac22_obrazac.js"></script>
 </body>
 </html>
