@@ -164,12 +164,60 @@ function provjeriObrazac() {
     }
 }
 
+function provjeriDatum() {
+    const datumInput = document.getElementById('dob');
+    const datum = new Date(datumInput.value);
+    const danas = new Date();
+    const minimalniDatum = new Date(danas);
+    minimalniDatum.setDate(danas.getDate() + 2);
+    const maksimalniDatum = new Date(danas);
+    maksimalniDatum.setMonth(danas.getMonth() + 1);
+
+    if (datum < minimalniDatum || datum > maksimalniDatum) {
+        let greska = document.getElementById("dobGreska");
+        greska.innerHTML = "Pogrešan datum, treba biti 2 dana u budućnost do mjesec dana u budućnost!";
+        let labela = document.querySelector('label[for="dob"]');
+        labela.style.color = 'red';
+        return false;
+    }
+    return true;
+}
+
+function provjeraVisestrukogUnosa() {
+    const odabir = document.getElementById('odabir');
+    const odabirGreska = document.getElementById('odabirGreska');
+
+    let grupa1 = false;
+    let grupa2 = false;
+
+    for (let option of odabir.selectedOptions) {
+        if (option.parentElement.label === 'Ograničeni aranžmani') {
+            grupa1 = true;
+        } else if (option.parentElement.label === 'Posebne ponude') {
+            grupa2 = true;
+        }
+    }
+
+    if (!grupa1 || !grupa2) {
+        odabirGreska.textContent = 'Odaberite po jednu opciju iz svake grupe.';
+        return false;
+    } else {
+        odabirGreska.textContent = '';
+        return true;
+    }
+}
+
+
 const gumbZaSlanje = document.getElementById('posaljiObrazac');
 gumbZaSlanje.addEventListener('click', function(event) {
-    if (provjeriObrazac()) {
-        alert('Obrazac je uspješno poslan!');
-    }
-    else{
+    if (!provjeriObrazac()) {
         event.preventDefault();
     }
+    if (!provjeriDatum() || !provjeraVisestrukogUnosa()) {
+        event.preventDefault();
+    } else {
+        console.log("Obrazac je poslan!");
+    }
 });
+
+

@@ -367,7 +367,7 @@
         padding: 4px;
     }
 
-    #autorOstalo > a img{
+    #autorOstalo div > a img{
         animation: rotiraj 3s linear infinite;
     }
 
@@ -560,6 +560,9 @@
     span{
         color: red;
     }
-    
+    #datum{
+        display: flex;
+        flex-direction: row;
+    }
 }
 

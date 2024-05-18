@@ -461,4 +461,60 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+    #sredisnjiGalerija{
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-size: cover;
+    }
+
+    #sredisnjiGalerija h1{
+        text-align: center;
+    }
+
+    #gridSlike{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    figure {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .slika img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .slika:hover img {
+        transform: scale(1.1);
+    }
+    
+    .slika h3, .slika p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .slika a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    #sredinaObavjesti{
+        display: block;
+        background-color: rgba(102, 102, 102, 0.8);
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
 
