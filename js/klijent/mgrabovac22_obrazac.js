@@ -207,10 +207,29 @@ function provjeraVisestrukogUnosa() {
     }
 }
 
+function provjeraNumerickogUnosa(){
+    const x = 20;
+    const y = 70
+    const vrijednost =  document.getElementById('broj').value;
+
+    const broj = parseInt(vrijednost, 10);
+
+    if (broj >= x && broj <= y) {
+        console.log('Unos je u rasponu.');
+        return true;
+    } else {
+        const greska = document.getElementById("brojGreska");
+        greska.innerHTML = `Unesite broj između ${x} i ${y}.`;
+        return false;
+    }
+}
 
 const gumbZaSlanje = document.getElementById('posaljiObrazac');
 gumbZaSlanje.addEventListener('click', function(event) {
     if (!provjeriObrazac()) {
+        event.preventDefault();
+    }
+    if (!provjeraNumerickogUnosa()) {
         event.preventDefault();
     }
     if (!provjeriDatum() || !provjeraVisestrukogUnosa()) {
