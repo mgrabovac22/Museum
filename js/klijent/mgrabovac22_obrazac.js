@@ -33,14 +33,19 @@ function provjeriObrazac() {
         let greska = document.getElementById("imeGreska");
         greska.innerHTML = "";
     }
-    if (email.trim() == '') {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "" || !emailRegex.test(email)) {
         let labela = document.querySelector('label[for="email"]');
         labela.style.color = 'red';
         let greska = document.getElementById("emailGreska");
-        greska.innerHTML = "Popunite ovo polje!";
-        provjeraUnosa=false;
-    }
-    else{
+        if (email === "") {
+            greska.innerHTML = "Popunite ovo polje!";
+        } else {
+            greska.innerHTML = "Unesite ispravnu e-mail adresu!";
+        }
+        provjeraUnosa = false;
+    } 
+    else {
         let labela = document.querySelector('label[for="email"]');
         labela.style.color = 'black';
         let greska = document.getElementById("emailGreska");
