@@ -564,5 +564,8 @@
         display: flex;
         flex-direction: row;
     }
+    #sredisnjiIzlozba{
+        padding-top: 12vh;
+    }
 }
 
