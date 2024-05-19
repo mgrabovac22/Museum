@@ -224,6 +224,42 @@ function provjeraNumerickogUnosa(){
     }
 }
 
+function provjeraTeksta() {
+    const pocetakIVrijeme = /^[A-Z].*[\.\?\!]\s*$/;
+    const zabranjeniZnakovi = /[<>#\-]/;
+    let tekst = document.getElementById("textarea").value;
+    const greska = document.getElementById("textareaGreska");
+
+    greska.innerHTML = '';
+
+    if (zabranjeniZnakovi.test(tekst)) {
+        greska.innerHTML = "Zabranjeni (<,>,#,-) znakovi su uneseni! Ponovno unesite!";
+        return false;
+    }
+
+    const recenice = tekst.split(/[\.\?\!]/).filter(recenica => recenica.trim() !== "");
+
+    if (recenice.length > 4) {
+        greska.innerHTML = "Previše rečenica ste unijeli, maksimalno je 4.";
+        return false;
+    }
+
+    for (let recenica of recenice) {
+        recenica = recenica.trim();
+        if (!/^[A-ZČĆĐŠŽ]/.test(recenica)) {  
+            greska.innerHTML = "Svaka rečenica mora počinjati velikim slovom.";
+            return false;
+        }
+    }
+
+    if (!pocetakIVrijeme.test(tekst.trim())) {
+        greska.innerHTML = "Rečenica mora završavati (., !, ?) znakovima!";
+        return false;
+    }
+
+    return true;
+}
+
 const gumbZaSlanje = document.getElementById('posaljiObrazac');
 gumbZaSlanje.addEventListener('click', function(event) {
     if (!provjeriObrazac()) {
@@ -234,7 +270,11 @@ gumbZaSlanje.addEventListener('click', function(event) {
     }
     if (!provjeriDatum() || !provjeraVisestrukogUnosa()) {
         event.preventDefault();
-    } else {
+    }
+    if(!provjeraTeksta()){
+        event.preventDefault();
+    }
+    else{
         console.log("Obrazac je poslan!");
     }
 });
