@@ -1,4 +1,4 @@
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 900px) {
     header {
         width: 100%;
         background-color: #666666;
@@ -435,8 +435,35 @@
     span{
         color: red;
     }
-    
+    #sredisnjiIzlozba{
+        padding-top: 12vh;
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-size: cover;
+        padding-bottom: 21vh;
+    }
+    #formaTablica{
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    .inpIzl{
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+    .error{
+        color: red;
+        font-size: 0.9em;
+    }
+    #naslovObrazacTablica{
+        text-align: center;
+    }
 }
+    
 
 @media screen and (max-width: 800px) {
     th, td {
