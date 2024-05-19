@@ -11,17 +11,23 @@ function provjeriObrazac() {
     const grad = document.getElementById('grad').value;
     const odabir = document.getElementById('odabir').value;
     const textarea = document.getElementById('textarea').value;
+    const checkBox1 = document.getElementById('checkboxOpcije1');
+    const checkBox2 = document.getElementById('checkboxOpcije2');
 
     let provjeraUnosa =  true;
 
-    if (ime.trim() == "") {
+    const imeRegex = /^[A-Za-zČĆŽŠĐčćžšđ\s]+$/;
+    if (ime.trim() == "" || !imeRegex.test(ime)) {
         let labela = document.querySelector('label[for="ime"]');
         labela.style.color = 'red';
         let greska = document.getElementById("imeGreska");
-        greska.innerHTML = "Popunite ovo polje!";
-        provjeraUnosa=false;
-    }
-    else{
+        if (ime.trim() == "") {
+            greska.innerHTML = "Popunite ovo polje!";
+        } else {
+            greska.innerHTML = "Ime i prezime može sadržavati samo slova i razmake!";
+        }
+        provjeraUnosa = false;
+    } else {
         let labela = document.querySelector('label[for="ime"]');
         labela.style.color = 'black';
         let greska = document.getElementById("imeGreska");
@@ -78,6 +84,24 @@ function provjeriObrazac() {
         labela.style.color = 'black';
         let greska = document.getElementById("brojGreska");
         greska.innerHTML = "";  
+    }
+    if (!checkBox1.checked && !checkBox2.checked) {
+        let labela1 = document.querySelector('label[for="checkboxOpcije1"]');
+        labela1.style.color = 'red';
+        let labela2 = document.querySelector('label[for="checkboxOpcije2"]');
+        labela2.style.color = 'red';
+        let greska = document.getElementById("checkGreska");
+        greska.innerHTML = "Popunite ovo polje!";
+        provjeraUnosa=false;
+    }
+    else {
+        console.log("uslo1");
+        let labela1 = document.querySelector('label[for="checkboxOpcije1"]');
+        labela1.style.color = 'black';
+        let labela2 = document.querySelector('label[for="checkboxOpcije2"]');
+        labela2.style.color = 'black';
+        let greska = document.getElementById("checkGreska");
+        greska.innerHTML = "";
     }
 
     if (!opcija1.checked && !opcija2.checked && !opcija3.checked) {
