@@ -1,4 +1,4 @@
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1040px) {
     header {
         width: 100%;
         background-color: #666666;
@@ -208,6 +208,7 @@
     }
 
     #sredisnjiGalerija{
+        height: 100%;
         background-image: url(../resursi/slike/pozadina_pocetna.jpg);
         background-size: cover;
     }
@@ -431,8 +432,75 @@
         font-family: 'Times New Roman', Times, serif;
         padding: 10px;
     }
-    
+
+    span{
+        color: red;
+    }
+    #sredisnjiIzlozba{
+        padding-top: 12vh;
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-size: cover;
+        padding-bottom: 21vh;
+    }
+    #formaTablica{
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    .inpIzl{
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+    .error{
+        color: red;
+        font-size: 0.9em;
+    }
+    #naslovObrazacTablica{
+        text-align: center;
+    }
+    body.mobile{
+        width: 480px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    header.mobile{
+        width: 100%;
+        background-color: #666666;
+        text-align: center;
+    }
+    #navPocetna.mobile{
+        display: none;
+    }
+    #mobilniIzbornik.mobile{
+        display: block;
+    }
+    #karticaMob{
+        display: none;
+    }
+    #btnMobilni a{
+        text-decoration: none; 
+        color: black;
+    }
+    #btnMobilni{
+        background-color: #666666;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+    #btnMobilni a:hover{
+        background-color: darkgray;
+        color: #3E363F;
+    }
+    #karticabtn{
+        text-align: center;
+    }
 }
+    
 
 @media screen and (max-width: 800px) {
     th, td {
@@ -454,6 +522,68 @@
 
     th{
         background-color: lightgray;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #sredisnjiGalerija{
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-size: cover;
+    }
+
+    #sredisnjiGalerija h1{
+        text-align: center;
+    }
+
+    #gridSlike{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    figure {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .slika img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    .slika:hover img {
+        transform: scale(1.1);
+    }
+    
+    .slika h3, .slika p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .slika a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    #sredinaObavjesti{
+        display: block;
+        background-color: rgba(102, 102, 102, 0.8);
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #btnMobilni{
+        display: none;
+    }
+    #kartaPocetna{
+        margin: auto;
     }
 }
 

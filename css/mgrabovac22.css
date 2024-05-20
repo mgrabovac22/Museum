@@ -1,13 +1,12 @@
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1040px) {
     header {
         display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
         background-color: #666666;
-        position: fixed;
+        position: sticky;
         top: 0;
-        width: 100%;
         z-index: 1000;
     }
 
@@ -68,7 +67,6 @@
     }
 
     #kartaKontenjerPocetna{
-        padding-top: 10vh;
         display: flex;
         flex-direction: row;
     }
@@ -123,10 +121,6 @@
 
     .trenutna{
         background-color: darkgray;
-    }
-
-    #sredisnjiAutor{
-        padding-top: 10vh;
     }
 
     #sredisnjiPrviDio{
@@ -233,7 +227,6 @@
 
     #sredisnjiDokumentacija{
         height: 100%;
-        margin-top: 10vh;
         align-content: center;
         background-image: url(../resursi/slike/autorPozadina.jpg);
         background-size: cover;
@@ -269,7 +262,6 @@
     }
 
     #sredisnjiGalerija{
-        padding-top: 11vh;
         background-image: url(../resursi/slike/pozadina_pocetna.jpg);
         background-size: cover;
     }
@@ -316,7 +308,6 @@
     }
 
     #sredisnjiObavjest1 {
-        padding-top: 10vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -367,7 +358,7 @@
         padding: 4px;
     }
 
-    #autorOstalo > a img{
+    #autorOstalo div > a img{
         animation: rotiraj 3s linear infinite;
     }
 
@@ -470,10 +461,6 @@
         border: 1px solid #ddd;
     }
 
-    #sredisnjiObrazac{
-        padding-top: 12vh;
-    }
-
     form {
         background-color: lightgray;
         padding: 20px;
@@ -550,6 +537,74 @@
     .izbBootstrap{
         font-family: 'Times New Roman', Times, serif;
     }
-    
+
+    #btnMob{
+        width: 18vw;
+        background-color:lightgray;
+        height: 6vh;
+        cursor: pointer;
+    }
+    span{
+        color: red;
+    }
+    #datum{
+        display: flex;
+        flex-direction: row;
+    }
+    #sredisnjiIzlozba{
+        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-size: cover;
+        padding-bottom: 21vh;
+    }
+    #formaTablica{
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    .inpIzl{
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+    .error{
+        color: red;
+        font-size: 0.9em;
+    }
+    #naslovObrazacTablica{
+        text-align: center;
+    }
+    body.mobile{
+        width: 480px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    header.mobile{
+        display: flex;
+        flex-direction: column;
+    }
+    #karticaMob{
+        display: none;
+    }
+    #btnMobilni a{
+        text-decoration: none; 
+        color: black;
+    }
+    #btnMobilni{
+        background-color: #666666;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+    #btnMobilni a:hover{
+        background-color: darkgray;
+        color: #3E363F;
+    }
+    #karticabtn{
+        text-align: center;
+    }
 }
 

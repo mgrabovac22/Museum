@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Marin Grabovac">
     <meta name="keywords" content="Kupovanje karata, obrazac, unos">
-    <title>Obrasci</title>
+    <title>Validacija</title>
     <link rel="stylesheet" href="../css/mgrabovac22.css">
     <link rel="stylesheet" href="../css/mgrabovac22_responzivniMobitel.css">
     <link rel="icon" type="image/png" href="../resursi/slike/ikonaTaba.png">
@@ -26,9 +26,11 @@
             <a class="izbornikPocetna" href="./dokumentacija.html">Dokumentacija</a>
             <a class="izbornikPocetna" href="./oAutoru.html">o Autoru</a>
             <a class="izbornikPocetna" href="./galerijaSlika.html">Galerija</a>
-            <a class="izbornikPocetna trenutna"  href="./obrasci.html">Obrasci</a>
+            <a class="izbornikPocetna trenutna"  href="./obrasci.html">Obrazac validacija</a>
+            <a class="izbornikPocetna"  href="./obrazacIzlozba.html">Obrazac izložba</a>
             <a class="izbornikPocetna" href="./tablica.html">Tablica izložbi</a>
-
+            <a class="izbornikPocetna" href="/popis">Popis</a>
+            <a class="izbornikPocetna" href="/owt/izlozba">REST servis</a>
         </nav>
 
         <nav class="mobilniIzbornik">
@@ -36,47 +38,66 @@
             <a class="mobilniIzbornikPocetna" href="./dokumentacija.html">Dokumentacija</a>
             <a class="mobilniIzbornikPocetna" href="./oAutoru.html">o Autoru</a>
             <a class="mobilniIzbornikPocetna" href="./galerijaSlika.html">Galerija</a>
-            <a class="mobilniIzbornikPocetna trenutna"  href="./obrasci.html">Obrasci</a>
+            <a class="mobilniIzbornikPocetna trenutna"  href="./obrasci.html">Obrazac validacija</a>
+            <a class="mobilniIzbornikPocetna"  href="./obrazacIzlozba.html">Obrazac izložba</a>
             <a class="mobilniIzbornikPocetna" href="./tablica.html">Tablica izložbi</a>
+            <a class="mobilniIzbornikPocetna" href="/popis">Popis</a>
+            <a class="mobilniIzbornikPocetna" href="/owt/izlozba">REST servis</a>
         </nav>
 
     </header>
     <main id="sredisnjiObrazac">
-        <form action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post">
+        <form name="myForm" action="https://spider.foi.hr/OWT/materijali/ispis_forme.php" method="post" novalidate>
             <h1>Kupovanje karte</h1>
             <div class="unosi">
                 <label for="ime">Ime i prezime:</label>
                 <input type="text" id="ime" name="ime" required minlength="2" maxlength="50">
+                <span id="imeGreska"></span>
             </div>
             <div class="unosi">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <span id="emailGreska"></span>
             </div>
             <div class="unosi">
                 <label for="lozinka">Lozinka:</label>
                 <input type="password" id="lozinka" name="lozinka" required minlength="8">
+                <span id="lozinkaGreska"></span>
             </div>
             <div class="unosi">
-                <label for="dob">Datum rođenja:</label>
-                <input type="date" id="dob" name="dob" max="2004-01-01">
+                <label for="dob">Datum: </label>
+                <input type="date" id="dob" name="dob" max="2080-01-01" min="2024-01-01" required>
+                <span id="dobGreska"></span>
             </div>
             <div class="unosi">
                 <label for="broj">Broj godina:</label>
-                <input type="number" id="broj" name="broj" min="18" max="99">
+                <input type="number" id="broj" name="broj" min="18" max="99" required>
+                <span id="brojGreska"></span>
             </div>
             <div>  
                 <h2>Način plaćanja</h2>
                 <div class="jedanInputi unosi">
-                    <label for="opcija1">Kartica</label><br>
-                    <input type="radio" id="opcija1" name="opcija" value="Kartica" checked>
+                    <label for="opcija1" id="opc1">Kartica</label><br>
+                    <input type="radio" id="opcija1" name="opcija" value="Kartica" required>
                 </div>
                 <div class="jedanInputi unosi">
-                    <label for="opcija2">Paypal</label><br>
-                    <input type="radio" id="opcija2" name="opcija" value="Paypal">
+                    <label for="opcija2" id="opc2">Paypal</label><br>
+                    <input type="radio" id="opcija2" name="opcija" value="Paypal" >
                 </div>
                 <div class="jedanInputi unosi">
-                    <label for="opcija3">Crypto</label><br>
-                    <input type="radio" id="opcija3" name="opcija" value="Crypto">
+                    <label for="opcija3" id="opc3">Crypto</label><br>
+                    <input type="radio" id="opcija3" name="opcija" value="Crypto" >
+                    <span id="opcijeGreska"></span>
+                </div>
+            </div>
+            <div>
+                <h2>Sati u muzeju:</h2>
+                <div class="unosi">
+                    <label for="checkboxOpcije1">< 2 sata</label>
+                    <input type="checkbox" id="checkboxOpcije1" name="checkboxOpcije" value="< 2 sati">
+                    <label for="checkboxOpcije2">> 2 sata</label>
+                    <input type="checkbox" id="checkboxOpcije2" name="checkboxOpcije" value="> 2 sati">
+                    <span id="checkGreska"></span>
                 </div>
             </div>
             <div class="unosi">
@@ -86,15 +107,18 @@
                     <option value="M">Muško</option>
                     <option value="Ž">Žensko</option>
                 </select>
+                <span id="spolGreska"></span>
             </div>
             <div class="unosi">
                 <label for="grad">Grad:</label>
-                <input type="text" id="grad" name="grad" pattern="[A-Za-z\s]+" title="Dozvoljena su samo slova">
+                <input type="text" id="grad" name="grad" pattern="[A-Za-z\s]+" title="Dozvoljena su samo slova" required>
+                <span id="gradGreska"></span>
             </div>
             <div class="unosi">
                 <label for="odabir">Odabir:</label>
-                <select id="odabir" name="odabir">
+                <select id="odabir" name="odabir" required multiple>
                     <optgroup label="Ograničeni aranžmani">
+                        <option value="">Odaberite</option>
                         <option value="2 sata">2 sata - 3€</option>
                         <option value="5 sati">5 sati - 5€</option>
                         <option value="12 sati">12 sati - 10€</option>
@@ -105,13 +129,15 @@
                         <option value="ljubavna(2 osobe - 10 sati)">ljubavna(2 osobe - 10 sati) - 13€</option>
                     </optgroup>
                 </select>
+                <span id="odabirGreska"></span>
             </div>
             <div class="unosi">
                 <label for="textarea">Komentar na naše usluge:</label>
-                <textarea id="textarea" name="komentar" rows="4" cols="50" maxlength="200"></textarea>
+                <textarea id="textarea" name="komentar" rows="4" cols="50" maxlength="200" required></textarea>
+                <span id="textareaGreska"></span>
             </div>
             <div>
-                <button type="submit">Pošalji</button>
+                <button type="submit" id="posaljiObrazac">Pošalji</button>
                 <button type="reset">Osvježi</button>
             </div>
         </form>
@@ -127,6 +153,7 @@
             <img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="HTML5 Validator" width="30" height="30">
         </a>        
     </footer>
-    <script src="../js/mgrabovac22.js"></script>
+    <script src="../js/klijent/mgrabovac22.js"></script>
+    <script src="../js/klijent/mgrabovac22_obrazac.js"></script>
 </body>
 </html>

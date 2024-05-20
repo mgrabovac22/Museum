@@ -1,0 +1,565 @@
+header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #666666;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+*{
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    text-align:justify;
+}
+
+.izbornikPocetna {
+    display: block;
+    float: left;
+    text-decoration: none;
+    color:black;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    align-content: center;
+}
+
+.izbornikPocetna:hover {
+    background-color: darkgray;
+    color: #3E363F;
+}
+
+#navPocetna{
+    align-content: center;
+}
+
+#naslovILogoPocetna {
+    display: flex;
+    flex-direction: row;
+}
+
+#naslovPocetna{
+    font-size:200%;
+}
+
+.mobilniIzbornik {
+    display: none; 
+}
+
+footer {
+    text-align: center;
+    background-color: #666666;
+    height: 12vh;
+    align-content: center;
+}
+
+p{
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    padding-right: 1vw;
+}
+
+#kartaKontenjerPocetna{
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#sredisnjiPocetna{
+    background-image: url('../resursi/slike/pozadina_pocetna.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+#opisMuzejaPocetna{
+    padding-left: 1vw;
+}
+
+iframe.karta{
+    padding-top: 10vh;
+    padding-right: 1vw;
+    width: 400px;
+    height: 300px;
+}
+
+.blok {
+    width: 250px;
+    height: 270px;
+    background-color: rgba(102, 102, 102, 0.7);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.blok:hover {
+    animation: povecanje 2s ease forwards;
+}    
+
+.blok a{
+    text-decoration: none;
+    color:lightgrey;
+}
+
+#obavjestiKontenjer{
+    text-align: center;
+}
+
+footer p a{
+    text-decoration: none;
+    color: black;
+}
+
+.trenutna{
+    background-color: darkgray;
+}
+
+#sredisnjiAutor{
+    padding-top: 10vh;
+}
+
+#sredisnjiPrviDio{
+    display: flex;
+    flex-direction: row;
+}
+
+#sredisnjiAutor{
+    background-image: url('../resursi/slike/autorPozadina.jpg');
+    background-size: cover;
+}
+
+#sredisnjiPrviDio{
+    justify-content: center;
+}
+
+#opisAutora{
+    display: block;
+    flex-direction: row;
+    background-color: rgba(102, 102, 102, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#opisAutora a{
+    color: black;
+}
+
+#opisAutora:hover{
+    transform: scale(1.02);
+}
+
+#mojaSlika{
+    padding-top: 10vh;
+    padding-right: 2vh;
+}
+
+#kvalifikacijeAutora{
+    display: block;
+    background-color: rgba(102, 102, 102, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#kvalifikacijeAutora:hover{
+    transform: scale(1.02);
+}
+
+@keyframes pomjeranjeGoreDole {
+    0% {
+        transform: translateY(100px); 
+    }
+    50% {
+        transform: translateY(-50px); 
+    }
+    100% {
+        transform: translateY(100px); 
+    }
+}
+
+@keyframes suzavanje {
+    from {
+        transform: scaleX(1); 
+    }
+    to {
+        transform: scaleX(0.5); 
+    }
+}
+
+#mojaSlika:hover {
+    animation: pomjeranjeGoreDole 3s linear infinite alternate; 
+}
+
+p.boldanFont{
+    text-shadow: none;
+}
+
+@keyframes povecanje {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+
+#imeBootstrap{
+    display: flex;
+    align-items: center;
+}
+
+#ikonaB{
+    padding-right: 10px;
+}
+
+#autorPodnozje{
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+}
+
+#sredisnjiDokumentacija{
+    height: 100%;
+    margin-top: 10vh;
+    align-content: center;
+    background-image: url(../resursi/slike/autorPozadina.jpg);
+    background-size: cover;
+    padding: 15vh;
+}
+
+ul, li {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.sredinaDok{
+    display: block;
+    background-color: rgba(102, 102, 102, 0.8);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sredinaDok:hover{
+    animation: povecanje 2s ease forwards;
+}
+
+li a{
+   text-decoration: none;
+   color:darkgray;
+}
+
+#podnozjeDokumentacije{
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+}
+
+#sredisnjiGalerija{
+    padding-top: 11vh;
+    background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+    background-size: cover;
+}
+
+#sredisnjiGalerija h1{
+    padding-left: 1vw;
+}
+
+#gridSlike{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+figure {
+    position: relative;
+    overflow: hidden;
+}
+
+div.slika img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.slika:hover img {
+    transform: scale(1.1);
+}
+
+.slika h3, .slika p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.slika a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+#sredisnjiObavjest1 {
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    background-image: url(../resursi/slike/pozadina_pocetna_mobilni.jpg);
+    background-size: cover;
+}
+
+#sredinaObavjesti{
+    display: block;
+    background-color: rgba(102, 102, 102, 0.8);
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.naslovObavjesti{
+    display: flex;
+    flex-direction: row;
+}
+
+#autorOstalo{
+    margin-left: 4vw;
+    border-color: black;
+    border-style: solid;
+}
+
+#videoOb1{
+    width: 100%;
+    height: 200px;
+}
+
+@keyframes rotiraj {
+    from{
+        transform: rotate(360deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+}
+
+#autorOstalo a{
+    text-decoration: none;
+    color: antiquewhite;
+    padding: 4px;
+}
+
+#autorOstalo div > a img{
+    animation: rotiraj 3s linear infinite;
+}
+
+@keyframes ukrsti {
+    0% {
+        transform: rotateY(0deg);
+    }
+    25% {
+        transform: rotateY(90deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    75% {
+        transform: rotateY(270deg);
+    }
+    100% {
+        transform: rotateY(360deg) ;
+    }
+}
+
+#mac1 {
+    animation: ukrsti 2s linear infinite;
+}
+
+.animacija ~ #slikaUobavjest{
+    text-align: center;
+}
+
+@keyframes rotirajKovanicu {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(360deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg) ;
+    }
+}
+
+#kovanicaAnimacija{
+    text-align: center;
+    animation: rotirajKovanicu 1s linear infinite;
+}
+
+@keyframes kretanjeKonj {
+    0%, 100% {
+      transform: translateX(-5vw) rotateY(0deg);
+    }
+    50% {
+      transform: translateX(5vw) rotateY(180deg);
+    }
+  }
+
+#konjAnimacija{
+    text-align: center;
+    animation: kretanjeKonj 4s linear infinite;
+}
+
+#sredisnjiTablica{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../resursi/slike/pozadina_pocetna_mobilni.jpg);
+    background-size: cover;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th{
+    background-color: lightgray;
+    color: #333;
+}
+
+td{
+    background-color: #f2f2f2;
+}
+
+th [scope="col"], td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+#sredisnjiObrazac{
+    padding-top: 12vh;
+}
+
+form {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    padding-right: 3vw;
+    font-weight: bold;
+}
+
+label + input{
+    width: 80%;
+    padding: 10px;
+}
+
+input, select {
+    width: 80%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+}
+
+input[type="submit"], input[type="reset"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #0056b3;
+}
+
+.jedanInputi{
+    display: flex;
+    flex-direction: row;
+}
+
+#konjAnimacija::before{
+    content: ">> ";
+}
+
+#konjAnimacija::after{
+    content: " <<";
+}
+
+.unosi{
+    display: flex;
+    flex-direction: row;
+}
+
+#naslovPocetnaAutor{
+    padding-top: 3vh;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: black;
+    font-size:200%;
+    padding-left: 0.1vw;
+}
+
+.izbBootstrap{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#btnMob{
+    width: 18vw;
+    background-color:lightgray;
+    height: 6vh;
+    cursor: pointer;
+}
+span{
+    color: red;
+}
+#datum{
+    display: flex;
+    flex-direction: row;
+}
