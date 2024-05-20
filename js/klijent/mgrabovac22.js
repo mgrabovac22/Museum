@@ -1,27 +1,36 @@
-let prebacivanjeEkrana = document.getElementById("btnMob");
-
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById('mobile');
     const body = document.body;
 
-    function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = "expires=" + date.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
     function mobile() {
         if (body.classList.contains('mobile')) {
             body.classList.remove('mobile');
-            prebacivanjeEkrana.innerHTML = "Prebaci na mobilnu verziju";
+            toggleButton.textContent = "Prebaci na mobilnu verziju";
+            document.getElementById("navPocetna").style.display= "inline";
+            document.getElementById("kartica").style.display="inline";
+            document.getElementById("karticaMob").style.display="none";
+            document.getElementById("btnMobilni").style.display= "none";
             setCookie("deviceVersion", "desktop", 7);
         } else {
             body.classList.add('mobile');
-            prebacivanjeEkrana.innerHTML = "Vrati na stolnu verziju";
+            toggleButton.textContent = "Vrati na stolnu verziju";
+            document.getElementById("navPocetna").style.display= "none";
+            document.getElementById("btnMobilni").style.display= "block";
+            document.getElementById("kartica").style.display="none";
+            document.getElementById("karticaMob").style.display="inline";
             setCookie("deviceVersion", "mobile", 7);
         }
+        console.log("Prebaceno je");
     }
-
-    prebacivanjeEkrana.addEventListener("click", mobile);
-    console.log("Script loaded successfully");
+    toggleButton.addEventListener('click', mobile);
 });
+
+
+

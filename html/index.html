@@ -6,14 +6,14 @@
     <meta name="author" content="Marin Grabovac">
     <meta name="keywords" content="Početna stranica, Muzej, Templari">
     <title>Muzej početna</title>
-    <link rel="stylesheet" href="../css/mgrabovac22.css">
+    <link id="cssLink" rel="stylesheet" href="../css/mgrabovac22.css">
     <link rel="stylesheet" href="../css/mgrabovac22_responzivniMobitel.css">
 
     <link rel="icon" type="image/png" href="../resursi/slike/ikonaTaba.png">
 
 </head>
 <body>
-    <header>
+    <header id="pocetnaHeader">
 
         <div id="naslovILogoPocetna">
             <a id="logoMuzejPocetna" href="./index.html">
@@ -35,7 +35,8 @@
             <a class="izbornikPocetna" href="/owt/izlozba">REST servis</a>
         </nav>
 
-        <nav class="mobilniIzbornik">
+        
+        <nav class="mobilniIzbornik" id="mobIzb">
             <a class="mobilniIzbornikPocetna trenutna" href="index.html">Početna stranica</a>
             <a class="mobilniIzbornikPocetna" href="./dokumentacija.html">Dokumentacija</a>
             <a class="mobilniIzbornikPocetna" href="./oAutoru.html">o Autoru</a>
@@ -48,6 +49,19 @@
         </nav>
 
     </header>
+
+    <nav id="btnMobilni">
+        <a class="trenutna" href="index.html">Početna stranica</a>
+        <a href="./dokumentacija.html">Dokumentacija</a>
+        <a href="./oAutoru.html">o Autoru</a>
+        <a href="./galerijaSlika.html">Galerija</a>
+        <a href="./obrasci.html">Obrazac validacija</a>
+        <a href="./obrazacIzlozba.html">Obrazac izložba</a>
+        <a href="./tablica.html">Tablica izložbi</a>
+        <a href="/popis">Popis</a>
+        <a href="/owt/izlozba">REST servis</a>
+    </nav>
+
     <main id="sredisnjiPocetna">
         <div id="kartaKontenjerPocetna">
             <div id="opisMuzejaPocetna">
@@ -63,12 +77,15 @@
                     Nalazi se na obali prekrasnog Mediteranskog mora, na jugu Francuske Rivijere, gradić Villefranche-sur-Mer mami posjetitelje svojom slikovitom ljepotom i bogatom kulturnom baštinom. Okružen brežuljcima i šarmantnim mediteranskim arhitektonskim stilom, Villefranche-sur-Mer nudi nevjerojatne pejzaže, živopisne ulice i šarmantne trgove. Ova slikovita luka ne samo da je domaćin prekrasnih plaža i bistrog plavog mora, već također obiluje poviješću, kulturom i gastronomijom. 
                     Posjetitelji mogu uživati u šetnjama uz more, istraživati ​​uske uličice, posjetiti lokalne trgovine i restorane, te se uroniti u autentični francuski način života. Villefranche-sur-Mer je idealna lokacija za putnike koji traže miran odmor uz prekrasne krajolike i bogatu povijest.
                 </p>
-                <button id="btnMob">Prebaci na mobilnu verziju</button>
+                <button id="mobile">Prebaci na mobilnu verziju</button>
             </div>
             <div id="kartaPocetna">
-                <iframe class="karta" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11101.617997547046!2d7.253731395767805!3d43.70296892095554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd06caaf2f5eb%3A0x58b88382e18e5e5d!2sMus%C3%A9e%20des%20Beaux-Arts%20de%20Nice!5e0!3m2!1shr!2shr!4v1712994696670!5m2!1shr!2shr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="karta" id="kartica" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11101.617997547046!2d7.253731395767805!3d43.70296892095554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd06caaf2f5eb%3A0x58b88382e18e5e5d!2sMus%C3%A9e%20des%20Beaux-Arts%20de%20Nice!5e0!3m2!1shr!2shr!4v1712994696670!5m2!1shr!2shr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div> 
+        </div>
+        <div id="karticabtn">
+            <iframe class="karta" id="karticaMob" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11101.617997547046!2d7.253731395767805!3d43.70296892095554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd06caaf2f5eb%3A0x58b88382e18e5e5d!2sMus%C3%A9e%20des%20Beaux-Arts%20de%20Nice!5e0!3m2!1shr!2shr!4v1712994696670!5m2!1shr!2shr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
         <div id="obavjestiKontenjer">
             <div class="blok">
                 <img src="../resursi/slike/macPrvaObavjest.jpg" alt="mać" width="100" height="120">

@@ -208,6 +208,7 @@
     }
 
     #sredisnjiGalerija{
+        height: 100%;
         background-image: url(../resursi/slike/pozadina_pocetna.jpg);
         background-size: cover;
     }
@@ -462,6 +463,42 @@
     #naslovObrazacTablica{
         text-align: center;
     }
+    body.mobile{
+        width: 480px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    header.mobile{
+        width: 100%;
+        background-color: #666666;
+        text-align: center;
+    }
+    #navPocetna.mobile{
+        display: none;
+    }
+    #mobilniIzbornik.mobile{
+        display: block;
+    }
+    #karticaMob{
+        display: none;
+    }
+    #btnMobilni a{
+        text-decoration: none; 
+        color: black;
+    }
+    #btnMobilni{
+        background-color: #666666;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+    #btnMobilni a:hover{
+        background-color: darkgray;
+        color: #3E363F;
+    }
+    #karticabtn{
+        text-align: center;
+    }
 }
     
 
@@ -541,6 +578,9 @@
         margin: 20px;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #btnMobilni{
+        display: none;
     }
 }
 

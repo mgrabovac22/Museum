@@ -5,9 +5,8 @@
         width: 100%;
         justify-content: space-between;
         background-color: #666666;
-        position: fixed;
+        position: sticky;
         top: 0;
-        width: 100%;
         z-index: 1000;
     }
 
@@ -68,7 +67,6 @@
     }
 
     #kartaKontenjerPocetna{
-        padding-top: 10vh;
         display: flex;
         flex-direction: row;
     }
@@ -123,10 +121,6 @@
 
     .trenutna{
         background-color: darkgray;
-    }
-
-    #sredisnjiAutor{
-        padding-top: 10vh;
     }
 
     #sredisnjiPrviDio{
@@ -233,7 +227,6 @@
 
     #sredisnjiDokumentacija{
         height: 100%;
-        margin-top: 10vh;
         align-content: center;
         background-image: url(../resursi/slike/autorPozadina.jpg);
         background-size: cover;
@@ -269,7 +262,6 @@
     }
 
     #sredisnjiGalerija{
-        padding-top: 11vh;
         background-image: url(../resursi/slike/pozadina_pocetna.jpg);
         background-size: cover;
     }
@@ -316,7 +308,6 @@
     }
 
     #sredisnjiObavjest1 {
-        padding-top: 10vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -470,10 +461,6 @@
         border: 1px solid #ddd;
     }
 
-    #sredisnjiObrazac{
-        padding-top: 12vh;
-    }
-
     form {
         background-color: lightgray;
         padding: 20px;
@@ -565,7 +552,6 @@
         flex-direction: row;
     }
     #sredisnjiIzlozba{
-        padding-top: 12vh;
         background-image: url(../resursi/slike/pozadina_pocetna.jpg);
         background-size: cover;
         padding-bottom: 21vh;
@@ -589,6 +575,35 @@
         font-size: 0.9em;
     }
     #naslovObrazacTablica{
+        text-align: center;
+    }
+    body.mobile{
+        width: 480px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    header.mobile{
+        display: flex;
+        flex-direction: column;
+    }
+    #karticaMob{
+        display: none;
+    }
+    #btnMobilni a{
+        text-decoration: none; 
+        color: black;
+    }
+    #btnMobilni{
+        background-color: #666666;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+    }
+    #btnMobilni a:hover{
+        background-color: darkgray;
+        color: #3E363F;
+    }
+    #karticabtn{
         text-align: center;
     }
 }
