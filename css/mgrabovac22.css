@@ -72,7 +72,7 @@
     }
 
     #sredisnjiPocetna{
-        background-image: url('../resursi/slike/pozadina_pocetna.jpg');
+        background-image: url('/slike/pozadina_pocetna.jpg');
         background-size: cover;
         z-index: -1;
     }
