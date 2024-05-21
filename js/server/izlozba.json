@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "naziv": "Sveta križarska sablja",
+        "opis": "Antička sablja koja se pripisuje templarima",
+        "kategorija": "Oružje"
+    },
+    {
+        "id": 2,
+        "naziv": "Templarski oklop",
+        "opis": "Oklop koji su templari nosili tijekom srednjeg vijeka",
+        "kategorija": "Oružje"
+    },
+    {
+        "id": 3,
+        "naziv": "Sveta relikvija",
+        "opis": "Fragment križa s kojeg je raspet Isus Krist",
+        "kategorija": "Relikvija"
+    },
+    {
+        "id": 4,
+        "naziv": "Templarski grb",
+        "opis": "Simbolika i značenje grba templarskog reda",
+        "kategorija": "Simbolika"
+    },
+    {
+        "id": 5,
+        "naziv": "Templarski kodeks",
+        "opis": "Stari rukopisi s pravilima i načelima templarskog reda",
+        "kategorija": "Rukopisi"
+    },
+    {
+        "id": 6,
+        "naziv": "Templarski pečat",
+        "opis": "Pečat koji su templari koristili za svoje dokumente",
+        "kategorija": "Simbolika"
+    },
+    {
+        "id": 7,
+        "naziv": "Templarski mač",
+        "opis": "Mač koji je bio u vlasništvu poznatog templarskog viteza",
+        "kategorija": "Oružje"
+    },
+    {
+        "id": 8,
+        "naziv": "Templarska amajlija",
+        "opis": "Amajlija koja se pripisuje zaštitnom djelovanju templara",
+        "kategorija": "Amajlija"
+    },
+    {
+        "id": 9,
+        "naziv": "Templarski štit",
+        "opis": "Štit s grbom templarskog reda",
+        "kategorija": "Oružje"
+    },
+    {
+        "id": 10,
+        "naziv": "Templarska zastava",
+        "opis": "Zastava s emblemom templarskog reda",
+        "kategorija": "Simbolika"
+    }
+]
