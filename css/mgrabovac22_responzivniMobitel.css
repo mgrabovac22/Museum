@@ -110,7 +110,7 @@
     }
 
     #sredisnjiAutor{
-        background-image: url('../resursi/slike/autorPozadina.jpg');
+        background-image: url('/slike/autorPozadina.jpg');
         background-size: cover;
         z-index: -1;
     }
@@ -175,7 +175,7 @@
 
     #sredisnjiDokumentacija{
         align-content: center;
-        background-image: url(../resursi/slike/autorPozadina.jpg);
+        background-image: url("/slike/autorPozadina.jpg");
         background-size: cover;
     }
 
@@ -209,7 +209,7 @@
 
     #sredisnjiGalerija{
         height: 100%;
-        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-image: url("/slike/pozadina_pocetna.jpg");
         background-size: cover;
     }
 
@@ -268,7 +268,7 @@
     }
 
     #sredisnjiObavjest1{
-        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-image: url("/slike/pozadina_pocetna.jpg");
         background-size: cover;
     }
 
@@ -361,7 +361,7 @@
     
     #sredisnjiTablica{
         min-height: 90vh;
-        background-image: url(../resursi/slike/pozadina_pocetna_mobilni.jpg);
+        background-image: url("/slike/pozadina_pocetna_mobilni.jpg");
         background-size: cover;
     }
 
@@ -438,7 +438,7 @@
     }
     #sredisnjiIzlozba{
         padding-top: 12vh;
-        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-image: url("/slike/pozadina_pocetna.jpg");
         background-size: cover;
         padding-bottom: 21vh;
     }
@@ -527,7 +527,7 @@
 
 @media screen and (min-width: 1024px) {
     #sredisnjiGalerija{
-        background-image: url(../resursi/slike/pozadina_pocetna.jpg);
+        background-image: url("/slike/pozadina_pocetna.jpg");
         background-size: cover;
     }
 
