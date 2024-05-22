@@ -264,6 +264,14 @@ server.post('/owt/izlozba', (req, res) => {
     }
 });
 
+server.put('/owt/izlozba', (req, res) => {
+    res.status(501).json({ error: 'Metoda nije implementirana' });
+});
+
+server.delete('/owt/izlozba', (req, res) => {
+    res.status(501).json({ error: 'Metoda nije implementirana' });
+});
+
 server.use((req, res) => {
     res.status(404).send(`
         <h1>Stranica ne postoji!</h1>
