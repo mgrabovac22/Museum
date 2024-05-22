@@ -235,7 +235,7 @@ server.get('/owt/izlozba', (req, res) => {
     fs.readFile(csvFilePath, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading CSV file:', err);
-            return res.status(500).json({ error: 'Internal server error' });
+            return res.status(500).json({ greska: 'Internal server error' });
         }
         const objekt = new Modul();
         const redovi = data.split('\n').filter(red => red.trim() !== '');
@@ -249,7 +249,7 @@ server.post('/owt/izlozba', (req, res) => {
     const { id, naziv, opis, kategorija } = req.body;
 
     if (!id || !naziv || !opis || !kategorija) {
-        return res.status(417).json({ error: 'Nevaljani podaci' });
+        return res.status(417).json({ greska: 'Nevaljani podaci' });
     }
 
     const newRow = `\n${id}#${naziv}#${opis}#${kategorija}\n`;
@@ -260,7 +260,7 @@ server.post('/owt/izlozba', (req, res) => {
         res.status(200).json({ message: 'Podaci dodani' });
     } catch (err) {
         console.error('Error appending to CSV file:', err);
-        res.status(417).json({ error: 'Nevaljani podaci' });
+        res.status(417).json({ greska: 'Nevaljani podaci' });
     }
 });
 
@@ -272,13 +272,13 @@ server.get('/owt/izlozba/:naziv', (req, res) => {
     citajCSV(putanjaDatoteke, separator, (err, podaci) => {
         if (err) {
             console.error('Greška prilikom čitanja CSV datoteke:', err);
-            return res.status(500).json({ error: 'Internal server error' });
+            return res.status(500).json({ greska: 'Internal server error' });
         }
 
         const pronadjeniPodaci = podaci.find(red => red[1] === nazivPrimjerka);
 
         if (!pronadjeniPodaci) {
-            return res.status(404).json({ error: 'Nema resursa' });
+            return res.status(404).json({ greska: 'Nema resursa' });
         }
 
         const [id, naziv, opis, kategorija] = pronadjeniPodaci;
@@ -297,13 +297,13 @@ server.delete('/owt/izlozba/:naziv', (req, res) => {
     citajCSV(putanjaDatoteke, separator, (err, podaci) => {
         if (err) {
             console.error('Greška prilikom čitanja CSV datoteke:', err);
-            return res.status(500).json({ error: 'Internal server error' });
+            return res.status(500).json({ greska: 'Internal server error' });
         }
 
         const index = podaci.findIndex(red => red[1] === naziv);
 
         if (index === -1) {
-            return res.status(417).json({ error: 'Brisanje neuspješno, provjerite naziv' });
+            return res.status(417).json({ greska: 'Brisanje neuspješno, provjerite naziv' });
         }
 
         podaci.splice(index, 1);
@@ -312,7 +312,7 @@ server.delete('/owt/izlozba/:naziv', (req, res) => {
         fs.writeFile(putanjaDatoteke, noviPodaci, (writeErr) => {
             if (writeErr) {
                 console.error('Greška prilikom zapisivanja u CSV datoteku:', writeErr);
-                return res.status(500).json({ error: 'Internal server error' });
+                return res.status(500).json({ greska: 'Internal server error' });
             }
             res.status(200).json({ message: 'Podaci izbrisani' });
         });
@@ -320,19 +320,19 @@ server.delete('/owt/izlozba/:naziv', (req, res) => {
 });
 
 server.put('/owt/izlozba', (req, res) => {
-    res.status(501).json({ error: 'Metoda nije implementirana' });
+    res.status(501).json({ greska: 'Metoda nije implementirana' });
 });
 
 server.delete('/owt/izlozba', (req, res) => {
-    res.status(501).json({ error: 'Metoda nije implementirana' });
+    res.status(501).json({ greska: 'Metoda nije implementirana' });
 });
 
 server.post('/owt/izlozba/:naziv', (req, res) => {
-    res.status(405).json({ error: 'Metoda nije dopuštena' });
+    res.status(405).json({ greska: 'Metoda nije dopuštena' });
 });
 
 server.put('/owt/izlozba/:naziv', (req, res) => {
-    res.status(501).json({ error: 'Metoda nije implementirana' });
+    res.status(501).json({ greska: 'Metoda nije implementirana' });
 });
 
 server.use((req, res) => {
