@@ -88,7 +88,6 @@ function kopirajIzJSONuCSV(putanjaJSON, putanjaCSV, pozivanje) {
 server.post('/popis', (req, res) => {
     const putanjaJSON = path.join(__dirname, 'js', 'server', 'izlozba.json');
     const putanjaCSV = path.join(__dirname, 'js', 'server', 'izlozba.csv');
-
     kopirajIzJSONuCSV(putanjaJSON, putanjaCSV, (err) => {
         if (err) {
             res.status(500).send('Greška pri kopiranju podataka iz JSON datoteke u CSV datoteku.');
@@ -106,7 +105,7 @@ server.get('/popis', (req, res) => {
         } else {
             const listItems = parametri.map(parametar => `
                 <li>
-                    <a href="#" class="delete-link" data-name="${parametar[1]}">${parametar[1]} - ${parametar[2]} (${parametar[3]})</a>
+                    <a href="#" class="brisanjeLink" data-name="${parametar[1]}">${parametar[1]} - ${parametar[2]} (${parametar[3]})</a>
                 </li>
             `).join('');
             const html = `
@@ -189,7 +188,7 @@ server.get('/popis', (req, res) => {
                     </footer>
                     <script>
                         document.addEventListener('DOMContentLoaded', function () {
-                            const linkPolje = document.querySelectorAll('.delete-link');
+                            const linkPolje = document.querySelectorAll('.brisanjeLink');
                             linkPolje.forEach(link => {
                                 link.addEventListener('click', function (event) {
                                     event.preventDefault();
@@ -217,9 +216,7 @@ server.get('/brisi', (req, res) => {
         if (err) {
             res.status(500).send('Greška pri čitanju datoteke.');
         } else {
-            const noviPodaci = parametri.filter(parametar => parametar[1] !== naziv)
-                                        .map(parametar => parametar.join('#'))
-                                        .join('\n');
+            const noviPodaci = parametri.filter(parametar => parametar[1] !== naziv).map(parametar => parametar.join('#')).join('\n');
             fs.writeFile(putanjaCSV, noviPodaci, 'utf8', (err) => {
                 if (err) {
                     res.status(500).send('Greška pri brisanju elementa.');
