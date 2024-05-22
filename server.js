@@ -264,11 +264,74 @@ server.post('/owt/izlozba', (req, res) => {
     }
 });
 
+server.get('/owt/izlozba/:naziv', (req, res) => {
+    const nazivPrimjerka = req.params.naziv;
+    const putanjaDatoteke = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const separator = '#';
+
+    citajCSV(putanjaDatoteke, separator, (err, podaci) => {
+        if (err) {
+            console.error('Greška prilikom čitanja CSV datoteke:', err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+
+        const pronadjeniPodaci = podaci.find(red => red[1] === nazivPrimjerka);
+
+        if (!pronadjeniPodaci) {
+            return res.status(404).json({ error: 'Nema resursa' });
+        }
+
+        const [id, naziv, opis, kategorija] = pronadjeniPodaci;
+
+        const izlozbeniPrimjerak = { id, naziv, opis, kategorija };
+
+        res.status(200).json(izlozbeniPrimjerak);
+    });
+});
+
+server.delete('/owt/izlozba/:naziv', (req, res) => {
+    const { naziv } = req.params;
+    const putanjaDatoteke = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const separator = '#';
+
+    citajCSV(putanjaDatoteke, separator, (err, podaci) => {
+        if (err) {
+            console.error('Greška prilikom čitanja CSV datoteke:', err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+
+        const index = podaci.findIndex(red => red[1] === naziv);
+
+        if (index === -1) {
+            return res.status(417).json({ error: 'Brisanje neuspješno, provjerite naziv' });
+        }
+
+        podaci.splice(index, 1);
+
+        const noviPodaci = podaci.map(red => red.join(separator)).join('\n');
+        fs.writeFile(putanjaDatoteke, noviPodaci, (writeErr) => {
+            if (writeErr) {
+                console.error('Greška prilikom zapisivanja u CSV datoteku:', writeErr);
+                return res.status(500).json({ error: 'Internal server error' });
+            }
+            res.status(200).json({ message: 'Podaci izbrisani' });
+        });
+    });
+});
+
 server.put('/owt/izlozba', (req, res) => {
     res.status(501).json({ error: 'Metoda nije implementirana' });
 });
 
 server.delete('/owt/izlozba', (req, res) => {
+    res.status(501).json({ error: 'Metoda nije implementirana' });
+});
+
+server.post('/owt/izlozba/:naziv', (req, res) => {
+    res.status(405).json({ error: 'Metoda nije dopuštena' });
+});
+
+server.put('/owt/izlozba/:naziv', (req, res) => {
     res.status(501).json({ error: 'Metoda nije implementirana' });
 });
 
