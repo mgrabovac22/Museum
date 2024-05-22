@@ -106,7 +106,7 @@ server.get('/popis', (req, res) => {
         } else {
             const listItems = parametri.map(parametar => `
                 <li>
-                    <a href="#" onclick="confirmDelete('${parametar[1]}')">${parametar[1]} - ${parametar[2]} (${parametar[3]})</a>
+                    <a href="#" class="delete-link" data-name="${parametar[1]}">${parametar[1]} - ${parametar[2]} (${parametar[3]})</a>
                 </li>
             `).join('');
             const html = `
@@ -132,7 +132,7 @@ server.get('/popis', (req, res) => {
                             background-color: gray;
                             margin-bottom: 3vh;
                         }
-                        main ul a{
+                        main ul a {
                             color: black;
                             text-decoration: none;
                         }
@@ -142,7 +142,7 @@ server.get('/popis', (req, res) => {
                             background-color: rgba(102, 102, 102, 0.7);
                             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                         }
-                        body{
+                        body {
                             background-image: url('/slike/pozadina_pocetna_mobilni.jpg');
                             background-size: cover;
                         }
@@ -151,22 +151,15 @@ server.get('/popis', (req, res) => {
                             bottom: 0;
                             width: 100%;
                         }
-                        form{
+                        form {
                             background-color: rgba(102, 102, 102, 0.7);
                             width: 20%;
                         }
-                        button{
+                        button {
                             background-color: rgba(102, 102, 102, 0.7);
-                            width:90%;
+                            width: 90%;
                         }
                     </style>
-                    <script>
-                        function confirmDelete(name) {
-                            if (confirm('Želite li obrisati ovaj element: ' + name + '?')) {
-                                window.location.href = '/brisi?name=' + encodeURIComponent(name);
-                            }
-                        }
-                    </script>
                 </head>
                 <body>
                     <header id="dinHeader">
@@ -176,7 +169,7 @@ server.get('/popis', (req, res) => {
                         <form action="/popis" method="post">
                             <button type="submit">Popuni</button>
                         </form>
-                        <ul>
+                        <ul id="itemList">
                             ${listItems}
                         </ul>
                         <div>
@@ -194,6 +187,20 @@ server.get('/popis', (req, res) => {
                             <img src="https://spider.foi.hr/OWT/materijali/slike/HTML5.png" alt="HTML5 Validator" width="30" height="30">
                         </a>
                     </footer>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const linkPolje = document.querySelectorAll('.delete-link');
+                            linkPolje.forEach(link => {
+                                link.addEventListener('click', function (event) {
+                                    event.preventDefault();
+                                    const name = this.getAttribute('data-name');
+                                    if (confirm('Želite li obrisati ovaj element: ' + name + '?')) {
+                                        window.location.href = '/brisi?name=' + encodeURIComponent(name);
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                 </body>
                 </html>
             `;
@@ -202,6 +209,27 @@ server.get('/popis', (req, res) => {
     });
 });
 
+server.get('/brisi', (req, res) => {
+    const naziv = req.query.name;
+    const putanjaCSV = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+
+    citajCSV(putanjaCSV, '#', (err, parametri) => {
+        if (err) {
+            res.status(500).send('Greška pri čitanju datoteke.');
+        } else {
+            const noviPodaci = parametri.filter(parametar => parametar[1] !== naziv)
+                                        .map(parametar => parametar.join('#'))
+                                        .join('\n');
+            fs.writeFile(putanjaCSV, noviPodaci, 'utf8', (err) => {
+                if (err) {
+                    res.status(500).send('Greška pri brisanju elementa.');
+                } else {
+                    res.redirect('/popis');
+                }
+            });
+        }
+    });
+});
 
 server.use((req, res) => {
     res.status(404).send(`
