@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require('fs');
 
-class pomFunkJSONCSV {
+class PomFunkJSONCSV {
     constructor() {
         console.log("Klasa inicijalizirana");
     }
@@ -38,4 +38,4 @@ class pomFunkJSONCSV {
     }
 };
 
-module.exports = pomFunkJSONCSV;
+module.exports = PomFunkJSONCSV;

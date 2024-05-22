@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require('fs');
 const path = require('path');
+const Modul = require("./js/server/modulCSVJSON.js")
 
 const server = express();
 
@@ -64,8 +65,8 @@ function citajCSV(putanjaDatoteke, separator, pozivanje) {
         if (err) {
             pozivanje(err, null);
         } else {
-            const rows = podaci.split('\n').filter(row => row.trim() !== '');
-            const parametri = rows.map(row => row.split(separator));
+            const redovi = podaci.split('\n').filter(red => red.trim() !== '');
+            const parametri = redovi.map(red => red.split(separator));
             pozivanje(null, parametri);
         }
     });
@@ -225,6 +226,22 @@ server.get('/brisi', (req, res) => {
                 }
             });
         }
+    });
+});
+
+server.get('/owt/izlozba', (req, res) => {
+    const csvFilePath = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    
+    fs.readFile(csvFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading CSV file:', err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+        const objekt = new Modul();
+        const redovi = data.split('\n').filter(red => red.trim() !== '');
+        const jsonPodaci = redovi.map(red => objekt.prebaciCSVuJSON(red));
+
+        res.json(jsonPodaci);
     });
 });
 
