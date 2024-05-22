@@ -252,16 +252,16 @@ server.post('/owt/izlozba', (req, res) => {
         return res.status(417).json({ error: 'Nevaljani podaci' });
     }
 
-    const newRow = `${id}#${naziv}#${opis}#${kategorija}\n`;
+    const newRow = `\n${id}#${naziv}#${opis}#${kategorija}\n`;
 
-    const csvFilePath = path.join(__dirname, 'izlozba.csv');
-    fs.appendFile(csvFilePath, newRow, (err) => {
-        if (err) {
-            console.error('Error appending to CSV file:', err);
-            return res.status(417).json({ error: 'Nevaljani podaci' });
-        }
+    const csvFilePath = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    try {
+        fs.appendFileSync(csvFilePath, newRow);
         res.status(200).json({ message: 'Podaci dodani' });
-    });
+    } catch (err) {
+        console.error('Error appending to CSV file:', err);
+        res.status(417).json({ error: 'Nevaljani podaci' });
+    }
 });
 
 server.use((req, res) => {
