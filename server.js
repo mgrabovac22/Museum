@@ -337,8 +337,34 @@ server.put('/owt/izlozba/:naziv', (req, res) => {
 
 server.use((req, res) => {
     res.status(404).send(`
-        <h1>Stranica ne postoji!</h1>
-        <p>Stranica koju tražite nije pronađena.</p>
-        <a href="/">Povratak na početnu stranicu</a>
+        <style>
+        a {
+            text-decoration: none;
+            color: black;
+            border-style: solid;
+            border-color: black;
+            border-radius: 5%;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: gray;
+            margin-bottom: 3vh;
+        }
+        div{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            text-align: center;
+            border-style: solid;
+            padding: 30px;
+        }
+        body{
+            background-color: gray;
+        }
+        </style>
+        <div>
+            <h1>Stranica ne postoji!</h1>
+            <p>Stranica koju tražite nije pronađena.</p>
+            <a href="/">Povratak na početnu stranicu</a>
+        </div>
     `);
 });
