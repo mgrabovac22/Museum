@@ -241,7 +241,26 @@ server.get('/owt/izlozba', (req, res) => {
         const redovi = data.split('\n').filter(red => red.trim() !== '');
         const jsonPodaci = redovi.map(red => objekt.prebaciCSVuJSON(red));
 
-        res.json(jsonPodaci);
+        res.status(200).json(jsonPodaci);
+    });
+});
+
+server.post('/owt/izlozba', (req, res) => {
+    const { id, naziv, opis, kategorija } = req.body;
+
+    if (!id || !naziv || !opis || !kategorija) {
+        return res.status(417).json({ error: 'Nevaljani podaci' });
+    }
+
+    const newRow = `${id}#${naziv}#${opis}#${kategorija}\n`;
+
+    const csvFilePath = path.join(__dirname, 'izlozba.csv');
+    fs.appendFile(csvFilePath, newRow, (err) => {
+        if (err) {
+            console.error('Error appending to CSV file:', err);
+            return res.status(417).json({ error: 'Nevaljani podaci' });
+        }
+        res.status(200).json({ message: 'Podaci dodani' });
     });
 });
 
