@@ -1,43 +1,63 @@
-const express = require("express");
 const fs = require('fs');
 const path = require('path');
 const Modul = require("./js/server/modulCSVJSON.js")
 
-const server = express();
+let server;
+let express;
+let posluzitelj;
 
-const port = 12073;
+function dajPort(korime) {
+	var os = require("os");
+	const HOST = os.hostname();
+	let port = null;
+	if (HOST != "spider.foi.hr") {
+        posluzitelj = "localhost:";
+        express = require("express");
+        server = express();
+		port = 12222;
+	} else {
+        posluzitelj = "spider.foi.hr:";
+        express = require("/usr/lib/node_modules/express");
+        server = express();
+		const portovi = require("/var/www/OWT/2024/portovi.js");
+		port = portovi[korime];
+	}
+	return port;
+}
+
+const port = dajPort("mgrabovac22");
 
 server.use(express.urlencoded({ extended: true }));
 
-let fun = function(request, response) {
-    response.sendFile(__dirname + "/html/index.html");
+let fun = function(req, res) {
+    res.sendFile(__dirname + "/html/index.html");
 };
-let funObavijest1 = function(request, response) {
-    response.sendFile(__dirname + "/html/saznajVise/oba.html");
+let funObavijest1 = function(req, res) {
+    res.sendFile(__dirname + "/html/saznajVise/oba.html");
 };
-let funObavijest2 = function(request, response) {
-    response.sendFile(__dirname + "/html/saznajVise/obb.html");
+let funObavijest2 = function(req, res) {
+    res.sendFile(__dirname + "/html/saznajVise/obb.html");
 };
-let funObavijest3 = function(request, response) {
-    response.sendFile(__dirname + "/html/saznajVise/obc.html");
+let funObavijest3 = function(req, res) {
+    res.sendFile(__dirname + "/html/saznajVise/obc.html");
 };
-let funDokumentacija = function(request, response) {
-    response.sendFile(__dirname + "/html/dokumentacija.html");
+let funDokumentacija = function(req, res) {
+    res.sendFile(__dirname + "/html/dokumentacija.html");
 };
-let funGalerija = function(request, response) {
-    response.sendFile(__dirname + "/html/galerijaSlika.html");
+let funGalerija = function(req, res) {
+    res.sendFile(__dirname + "/html/galerijaSlika.html");
 };
-let funAutor = function(request, response) {
-    response.sendFile(__dirname + "/html/oAutoru.html");
+let funAutor = function(req, res) {
+    res.sendFile(__dirname + "/html/oAutoru.html");
 };
-let funObrasci = function(request, response) {
-    response.sendFile(__dirname + "/html/fra.html");
+let funObrasci = function(req, res) {
+    res.sendFile(__dirname + "/html/fra.html");
 };
-let funIzlozba = function(request, response) {
-    response.sendFile(__dirname + "/html/frb.html");
+let funIzlozba = function(req, res) {
+    res.sendFile(__dirname + "/html/frb.html");
 };
-let funTablica = function(request, response) {
-    response.sendFile(__dirname + "/html/tablica.html");
+let funTablica = function(req, res) {
+    res.sendFile(__dirname + "/html/tablica.html");
 };
 
 server.get('/', fun);
@@ -54,10 +74,9 @@ server.use("/css", express.static("./css"));
 server.use("/jsk", express.static("./js/klijent"));
 server.use("/slike", express.static("./resursi/slike"));
 
-
 server.listen(port, () => {
-    http = "http://localhost:";
-    console.log('Express server pokrenut na: ' + http + port);
+    http = "http://";
+    console.log('Express server pokrenut na: ' + http + posluzitelj + port);
 })
 
 function citajCSV(putanjaDatoteke, separator, pozivanje) {
@@ -104,7 +123,7 @@ server.get('/popis', (req, res) => {
         if (err) {
             res.status(500).send('Greška pri čitanju datoteke.');
         } else {
-            const listItems = parametri.map(parametar => `
+            const primjerciLista = parametri.map(parametar => `
                 <li>
                     <a href="#" class="brisanjeLink" data-name="${parametar[1]}">${parametar[1]} - ${parametar[2]} (${parametar[3]})</a>
                 </li>
@@ -116,6 +135,8 @@ server.get('/popis', (req, res) => {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" type="text/css" href="/css/mgrabovac22.css">
+                    <link rel="stylesheet" type="text/css" href="/css/mgrabovac22_responzivniMobitel.css">
+                    <link rel="icon" type="image/png" href="/slike/ikonaTaba.png">
                     <title>Popis izložbenih primjeraka muzeja</title>
                     <style>
                         dinLista {
@@ -159,18 +180,55 @@ server.get('/popis', (req, res) => {
                             background-color: rgba(102, 102, 102, 0.7);
                             width: 90%;
                         }
+                        footer{
+                            position: sticky;
+                            bottom: 0;
+                            width:100%;
+                            margin-top: 50vh;
+                        }
                     </style>
                 </head>
                 <body>
                     <header id="dinHeader">
-                        <h1>Popis izložbenih primjeraka muzeja</h1>
+                        <div id="naslovILogoPocetna">
+                            <a id="logoMuzejPocetna" href="/">
+                                <img src="/slike/logo_muzeja.svg" alt="logo" width="70" height="70">
+                            </a>
+                    
+                            <h1>Popis izložbenih primjeraka muzeja</h1>
+                        </div>
+
+                        <nav id="navPocetna">
+                            <a class="izbornikPocetna"  href="/">Početna stranica</a>
+                            <a class="izbornikPocetna" href="/dok">Dokumentacija</a>
+                            <a class="izbornikPocetna" href="/oau">o Autoru</a>
+                            <a class="izbornikPocetna" href="/gal">Galerija</a>
+                            <a class="izbornikPocetna" href="/fra">Obrazac validacija</a>
+                            <a class="izbornikPocetna" href="/frb">Obrazac izložba</a>
+                            <a class="izbornikPocetna" href="/tab">Tablica izložbi</a>
+                            <a class="izbornikPocetna trenutna" href="/popis">Cjenik</a>
+                            <a class="izbornikPocetna" href="/owt/izlozba">REST servis</a>
+                        </nav>
+
+                        <nav class="mobilniIzbornik">
+                            <a class="mobilniIzbornikPocetna"  href="/">Početna stranica</a>
+                            <a class="mobilniIzbornikPocetna" href="/dok">Dokumentacija</a>
+                            <a class="mobilniIzbornikPocetna" href="/oau">o Autoru</a>
+                            <a class="mobilniIzbornikPocetna" href="/gal">Galerija</a>
+                            <a class="mobilniIzbornikPocetna trenutna" href="/fra">Obrazac validacija</a>
+                            <a class="mobilniIzbornikPocetna" href="/frb">Obrazac izložba</a>
+                            <a class="mobilniIzbornikPocetna" href="/tab">Tablica izložbi</a>
+                            <a class="mobilniIzbornikPocetna trenutna" href="/popis">Cjenik</a>
+                            <a class="mobilniIzbornikPocetna" href="/owt/izlozba">REST servis</a>
+                        </nav>
+     
                     </header>
                     <main>
                         <form action="/popis" method="post">
                             <button type="submit">Popuni</button>
                         </form>
-                        <ul id="itemList">
-                            ${listItems}
+                        <ul id="listaPrimjeraka">
+                            ${primjerciLista}
                         </ul>
                         <div>
                             <a href="/">Povratak na početnu stranicu</a>
@@ -257,7 +315,7 @@ server.post('/owt/izlozba', (req, res) => {
     const csvFilePath = path.join(__dirname, 'js', 'server', 'izlozba.csv');
     try {
         fs.appendFileSync(csvFilePath, newRow);
-        res.status(200).json({ message: 'Podaci dodani' });
+        res.status(200).json({ poruka: 'Podaci dodani' });
     } catch (err) {
         console.error('Error appending to CSV file:', err);
         res.status(417).json({ greska: 'Nevaljani podaci' });
@@ -314,7 +372,7 @@ server.delete('/owt/izlozba/:naziv', (req, res) => {
                 console.error('Greška prilikom zapisivanja u CSV datoteku:', writeErr);
                 return res.status(500).json({ greska: 'Internal server error' });
             }
-            res.status(200).json({ message: 'Podaci izbrisani' });
+            res.status(200).json({ poruka: 'Podaci izbrisani' });
         });
     });
 });
