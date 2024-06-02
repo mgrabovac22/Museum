@@ -106,8 +106,8 @@ function kopirajIzJSONuCSV(putanjaJSON, putanjaCSV, pozivanje) {
 }
 
 server.post('/popis', (req, res) => {
-    const putanjaJSON = path.join(__dirname, 'js', 'server', 'izlozba.json');
-    const putanjaCSV = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const putanjaJSON = path.join(__dirname, 'resursi', 'izlozba.json');
+    const putanjaCSV = path.join(__dirname, 'resursi', 'izlozba.csv');
     kopirajIzJSONuCSV(putanjaJSON, putanjaCSV, (err) => {
         if (err) {
             res.status(500).send('Greška pri kopiranju podataka iz JSON datoteke u CSV datoteku.');
@@ -119,7 +119,7 @@ server.post('/popis', (req, res) => {
 });
 
 server.get('/popis', (req, res) => {
-    citajCSV(path.join(__dirname, 'js', 'server', 'izlozba.csv'), '#', (err, parametri) => {
+    citajCSV(path.join(__dirname, 'resursi', 'izlozba.csv'), '#', (err, parametri) => {
         if (err) {
             res.status(500).send('Greška pri čitanju datoteke.');
         } else {
@@ -269,7 +269,7 @@ server.get('/popis', (req, res) => {
 
 server.get('/brisi', (req, res) => {
     const naziv = req.query.name;
-    const putanjaCSV = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const putanjaCSV = path.join(__dirname, 'resursi', 'izlozba.csv');
 
     citajCSV(putanjaCSV, '#', (err, parametri) => {
         if (err) {
@@ -288,7 +288,7 @@ server.get('/brisi', (req, res) => {
 });
 
 server.get('/owt/izlozba', (req, res) => {
-    const csvFilePath = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const csvFilePath = path.join(__dirname, 'resursi', 'izlozba.csv');
     
     fs.readFile(csvFilePath, 'utf8', (err, data) => {
         if (err) {
@@ -312,7 +312,7 @@ server.post('/owt/izlozba', (req, res) => {
 
     const newRow = `\n${id}#${naziv}#${opis}#${kategorija}\n`;
 
-    const csvFilePath = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const csvFilePath = path.join(__dirname, 'resursi', 'izlozba.csv');
     try {
         fs.appendFileSync(csvFilePath, newRow);
         res.status(200).json({ poruka: 'Podaci dodani' });
@@ -324,7 +324,7 @@ server.post('/owt/izlozba', (req, res) => {
 
 server.get('/owt/izlozba/:naziv', (req, res) => {
     const nazivPrimjerka = req.params.naziv;
-    const putanjaDatoteke = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const putanjaDatoteke = path.join(__dirname, 'resursi', 'izlozba.csv');
     const separator = '#';
 
     citajCSV(putanjaDatoteke, separator, (err, podaci) => {
@@ -349,7 +349,7 @@ server.get('/owt/izlozba/:naziv', (req, res) => {
 
 server.delete('/owt/izlozba/:naziv', (req, res) => {
     const { naziv } = req.params;
-    const putanjaDatoteke = path.join(__dirname, 'js', 'server', 'izlozba.csv');
+    const putanjaDatoteke = path.join(__dirname, 'resursi', 'izlozba.csv');
     const separator = '#';
 
     citajCSV(putanjaDatoteke, separator, (err, podaci) => {
